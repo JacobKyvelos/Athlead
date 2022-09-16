@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="id_team" content="{{teamId}}">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+        }
+        
+        th,
+        td,
+        tr,
+        #points {
+            text-align: left;
+            padding: 8px;
+            position: static;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+<body>
+    {% extends "template.html" %}
+    {% block content %}
+    <h1>{{ teamId }}</h1>
+    <table id="trapezi">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+            <h1 id="game_id"></h1>
+        </div>
+    </div>
+
+</body>
+<script>
+    function changeFunc() {
+        // const options = {
+        //     method: 'GET',
+        //     headers: {
+        //         'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+        //         'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+        //     }
+        // };
+        // const tid = document.getElementById("id_team").content;
+        // fetch('https://api-nba-v1.p.rapidapi.com/games?season=2021&team=' + tid, options)
+        return fetch("/static/json/bucks2021.JSON")
+        .then(response => {
+            console.log(response);
+            if(!response.ok){
+                throw Error('error')
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+
+            table = document.getElementById("trapezi");
+
+            const tableHead = table.querySelector('thead')
+            const tableBody = table.querySelector('tbody')
+
+            tableHead.innerHTML = "<tr></tr>";
+            tableBody.innerHTML = "";
+
+            // headers
+
+            const cellAwayTeam = document.createElement('th');
+            cellAwayTeam.textContent = 'AWAY TEAM';
+            tableHead.querySelector('tr').appendChild(cellAwayTeam);
+
+            const cellAwayScore = document.createElement('th');
+            cellAwayScore.textContent = 'AWAY SCORE';
+            tableHead.querySelector('tr').appendChild(cellAwayScore);
+
+            const cellHomeScore = document.createElement('th');
+            cellHomeScore.textContent = 'HOME SCORE';
+            tableHead.querySelector('tr').appendChild(cellHomeScore);
+
+            const cellHomeTeam = document.createElement('th');
+            cellHomeTeam.textContent = 'HOME TEAM';
+            tableHead.querySelector('tr').appendChild(cellHomeTeam);
+
+            const cellDate = document.createElement('th');
+            cellDate.textContent = 'DATE';
+            tableHead.querySelector('tr').appendChild(cellDate);
+
+
+            for (var row of data.response) {
+                if(row.league == 'standard' && row.scores.home.points != null){
+                    //console.log(row.id)
+                    //console.log(row.teams.visitors['name'],' ', row.scores.visitors['points'], '-', row.scores.home['points'], ' ', row.teams.home['name'])
+                    // console.log(row.scores.home.win,' ', row.date.start)
+
+                    const rowElement = document.createElement('tr');
+                    rowElement.setAttribute('id', row.id)
+
+                    const cellAwayTeam = document.createElement('td');
+                    cellAwayTeam.innerHTML = "<img src='" + row.teams.visitors['logo'] + "' alt='hello' style = 'max-width : 18px;' /> " + row.teams.visitors['name'];
+                    rowElement.appendChild(cellAwayTeam);
+
+                    const cellAwayScore = document.createElement('td');
+                    cellAwayScore.textContent = row.scores.visitors['points'];
+                    rowElement.appendChild(cellAwayScore);
+
+                    const cellHomeScore = document.createElement('td');
+                    cellHomeScore.textContent = row.scores.home['points'];
+                    rowElement.appendChild(cellHomeScore);
+
+                    const cellHomeTeam = document.createElement('td');
+                    //cellHomeTeam.innerHTML = "<img src='" + row.teams.home['logo'] + "' alt='hello' style = 'max-width : 20px;' />"
+                    console.log(cellHomeTeam.innerHTML)
+                    cellHomeTeam.innerHTML = "<img src='" + row.teams.home['logo'] + "' alt='hello' style = 'max-width : 18px;' /> " + row.teams.home['name'];
+                    rowElement.appendChild(cellHomeTeam);
+
+                    const cellDate = document.createElement('td');
+                    cellDate.textContent = row.date['start'];
+                    rowElement.appendChild(cellDate);
+
+                    tableBody.appendChild(rowElement);
+
+                    document.getElementById(row.id).addEventListener("click", function(event) {
+                        var gameId = event['path'][1].id
+                        console.log(gameId);
+                        // (async() => {
+                        //     var codes = await gameIdStats().then(data => {
+                        //         return data;
+                        //     });
+                        //     console.log('kodikoi ' + codes)
+                        // })();
+                        var modal = document.getElementById("myModal");
+                        modal.style.display = "block";
+                        document.getElementsByClassName("close")[0].onclick = function() {
+                            modal.style.display = "none";
+                        }
+                        document.getElementById('game_id').innerHTML = gameId
+                    });                    
+                }
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        }); 
+    };
+
+    function gameIdStats() {
+        return fetch("/static/json/matsakiStats.JSON")
+        .then(response => {
+            console.log(response);
+            if(!response.ok){
+                throw Error('error')
+            }
+            return response.json();
+        })
+        .then(data => {
+            //console.log(data.response[0].team['name'] + ' - ' + data.response[1].team['name'])
+            return data.response[0].team['name'] + ' - ' + data.response[1].team['name'];
+
+        })
+        .catch(error => {
+            console.log(error)
+        }); 
+    };
+
+    changeFunc()
+
+</script>
+{% endblock %}
+</html>

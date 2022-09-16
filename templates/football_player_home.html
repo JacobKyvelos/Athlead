@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta id="id_league" content="{{league_id}}">
+  <meta id="id_player" content="{{player_id}}">
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/flags/css/flag-icon.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/static/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/static/images/favicon.png" />
+  <style>
+    .arrow-1 {
+      width:100px;
+      height:30px;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .arrow-1:before {
+      content: "";
+      background: currentColor;
+      width:15px;
+      clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));
+      animation: a1 1.5s infinite linear;
+    }
+    @keyframes a1 {
+      90%,100%{flex-grow: 1}
+    }
+
+    .carousel-inner {
+      transition-property: opacity;
+    }
+
+    @media only screen and (max-device-width: 500px) {
+      #faceLogo {
+        max-width: 20%;
+      }
+    }
+
+    .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23D3D3D3' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    }
+
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23D3D3D3' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    }
+
+    
+  </style>
+  {{ JSGlue.include() }}
+</head>
+<body>
+  {% block content %}
+  <div class="container-scroller">
+    <div class="row p-0 m-0 proBanner" id="proBanner">
+      <div class="col-md-12 p-0 m-0">
+        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="ps-lg-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <button id="bannerClose" class="btn border-0 p-0">
+              <i class="mdi mdi-close text-white me-0"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">UI Elements</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Form elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Icons</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">help</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-sm-flex justify-content-between align-items-start">
+                          <div>
+                            <h4 class="card-title card-title-dash">Market Overview</h4>
+                            <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                          <form>
+                            <div class="row">
+                              <div class="form-group col-md-12">
+                                <label for="inputState2" style="text-align: center;">Season</label>
+                                <select id="inputState2" class="form-control" onchange="playerStats(document.getElementById('id_player').content, value) ">
+                                  <option value="" disabled selected>Select Season</option>
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option value="2021">2021-22</option>
+                                </select>
+                              </div>
+                            </div>
+                            <!-- <div class="row">
+                              <button type="button" class="btn btn-primary">Submit</button>
+                            </div> -->
+                          </form>
+                        </div>                    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        See all game events here
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <ul class="list-group justify-content-left" id="leagueTabs" role="tablist">
+                          <li class="list-group-item" role="presentation" id="navItem">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><img style="max-width: 25px; height: auto;" src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'></button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row row-flex">
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Player Stats</h4>
+                            
+                            <div id="carouselExampleIndicators69" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless " style="vertical-align: middle;">
+                                      <tbody>
+                                        <tr>
+                                          <th>Team</th>
+                                          <td id="gp" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>League</th>
+                                          <td id="wld" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Country</th>
+                                          <td id="gf" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Season</th>
+                                          <td id="ga" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Appearences</th>
+                                          <td id="cs" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Starter</th>
+                                          <td id="bws" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Average Rating</th>
+                                          <td id="l5g" style="text-align: center;"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless " style="vertical-align: middle;">
+                                      <tbody>
+                                        <tr>
+                                          <th>Goals Scored</th>
+                                          <td id="shotsOn" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Assists</th>
+                                          <td id="shotsTot" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Shooting Accuracy</th>
+                                          <td id="shotsAc" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Completed Passes</th>
+                                          <td id="yCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Key Passes</th>
+                                          <td id="avYCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Penalties Scored</th>
+                                          <td id="rCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Penalties Missed</th>
+                                          <td id="avRCard" style="text-align: center;"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless " style="vertical-align: middle;">
+                                      <tbody>
+                                        <tr>
+                                          <th>Total Shots</th>
+                                          <td id="avRCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Shots on Target</th>
+                                          <td id="rCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Yellow Cards</th>
+                                          <td id="shotsOn" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Red Cards</th>
+                                          <td id="shotsTot" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Fouls Committed</th>
+                                          <td id="shotsAc" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Fouls Drawn</th>
+                                          <td id="yCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Tackles</th>
+                                          <td id="avYCard" style="text-align: center;"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body" style="position: absolute;
+                          top: 50%;
+                          left: 50%;
+                          -moz-transform: translateX(-50%) translateY(-50%);
+                          -webkit-transform: translateX(-50%) translateY(-50%);
+                          transform: translateX(-50%) translateY(-50%);">
+                            <h4 class="card-title">Player Stats</h4>
+                            <div>
+                              <canvas id="chDonut1"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card">
+                            <h4 class="card-title">Player Stats</h4>
+                            <div id="carouselExampleIndicators420" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              </div>
+                              <div class="carousel-inner" style="position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              -moz-transform: translateX(-50%) translateY(-50%);
+                              -webkit-transform: translateX(-50%) translateY(-50%);
+                              transform: translateX(-50%) translateY(-50%);">
+                                <div class="carousel-item active">
+                                  <canvas id="chDonut3"></canvas>
+                                </div>
+                                <div class="carousel-item">
+                                  <canvas id="chDonut4"></canvas>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                <div class="row row-flex">
+                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">Player's Transfers History</h4>
+                        <div class="table-responsive">
+                          <table id="transfers" class="table table-borderless " style="vertical-align: middle;">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">Player's Trophies and Awards</h4>
+                        <div class="table-responsive">
+                          <table id="tropaia" class="table table-borderless " style="vertical-align: middle;">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h4 class="card-title">Player's Missed Fixtures and Injuries</h4>
+                        <div class="row">
+                          <form>
+                            <div class="form-row d-flex justify-content-between">
+                              <div class="form-group col-md-4">
+                                <label for="inputState2" style="text-align: center;">Season</label>
+                                <select id="inputState2" class="form-control" onchange="playerInjuries(document.getElementById('id_player').content, value)">
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option selected value="2021">2021-22</option>
+                                </select>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div id="carouselExampleIndicatorsInjuries" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicatorsInjuries" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicatorsInjuries" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          </div>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <div class="table-responsive">
+                                <table id="injuries" class="table table-borderless " style="vertical-align: middle;">
+                                  <thead>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <div class="carousel-item">
+                              <canvas id="horizontalBar"></canvas>
+                            </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsInjuries" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsInjuries" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <!-- <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                    <div class="row">
+                      <div class="col grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div style="display: none;" class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home1-tab">
+                  <div class="row row-flex">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                      <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h4 class="card-title">Player Stats</h4>
+                          
+                          <div id="carouselExampleIndicators69" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <div class="table-responsive">
+                                  <table class="table table-borderless " style="vertical-align: middle;">
+                                    <tbody>
+                                      <tr>
+                                        <th>Team</th>
+                                        <td id="gp" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>League</th>
+                                        <td id="wld" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Country</th>
+                                        <td id="gf" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Season</th>
+                                        <td id="ga" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Appearences</th>
+                                        <td id="cs" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Starter</th>
+                                        <td id="bws" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Average Rating</th>
+                                        <td id="l5g" style="text-align: center;"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <div class="table-responsive">
+                                  <table class="table table-borderless " style="vertical-align: middle;">
+                                    <tbody>
+                                      <tr>
+                                        <th id="goalsScored">Goals Scored</th>
+                                        <td id="shotsOn" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th id="assists">Assists</th>
+                                        <td id="shotsTot" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Shooting Accuracy</th>
+                                        <td id="shotsAc" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Completed Passes</th>
+                                        <td id="yCard" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Key Passes</th>
+                                        <td id="avYCard" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Penalties Scored</th>
+                                        <td id="rCard" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Penalties Missed</th>
+                                        <td id="avRCard" style="text-align: center;"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <div class="table-responsive">
+                                  <table class="table table-borderless " style="vertical-align: middle;">
+                                    <tbody>
+                                      <tr>
+                                        <th>Total Shots</th>
+                                        <td id="avRCard" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Shots on Target</th>
+                                        <td id="rCard" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Yellow Cards</th>
+                                        <td id="shotsOn" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Red Cards</th>
+                                        <td id="shotsTot" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Fouls Committed</th>
+                                        <td id="shotsAc" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Fouls Drawn</th>
+                                        <td id="yCard" style="text-align: center;"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Tackles</th>
+                                        <td id="avYCard" style="text-align: center;"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators69" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                      <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h4 class="card-title">Player Stats</h4>
+                          <div>
+                            <canvas style="top:50%; bottom: 50%;" id="chDonut1"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                      <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h4 class="card-title">Player Stats</h4>
+                          <div id="carouselExampleIndicators420" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <canvas id="chDonut3"></canvas>
+                              </div>
+                              <div class="carousel-item">
+                                <canvas id="chDonut4"></canvas>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators420" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <li style="display: none;" class="list-group-item" role="presentation" id="navItem1">
+                  <button class="nav-link active" id="home1-tab" data-bs-toggle="tab" data-bs-target="#home1" type="button" role="tab" aria-controls="home1" aria-selected="true"><img style="max-width: 25px; height: auto;" src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'></button>
+                </li>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/static/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/static/js/off-canvas.js"></script>
+  <script src="/static/js/hoverable-collapse.js"></script>
+  <script src="/static/js/template.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+  <script>
+    // function statCharts(id, labels, x){
+    //   // chart colors
+    //   var colors = ['blue', 'gray', 'magenta', '#DFFF00', '#FFBF00', '#FF7F50', '#DE3163', '#9FE2BF', '#40E0D0', '#6495ED', '#CCCCFF'];
+
+    //   /* 3 donut charts */
+    //   var donutOptions = {
+    //     cutoutPercentage: 85, 
+    //     legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
+    //   };
+
+    //   // donut 1
+    //   var chDonutData1 = {
+    //       labels: labels,
+    //       datasets: [
+    //         {
+    //           backgroundColor: colors,
+    //           borderWidth: 0,
+    //           data: [x, 100 -x]
+    //         }
+    //       ],
+          
+    //   };
+
+    //   var chDonut1 = document.getElementById(id);
+    //   if (chDonut1) {
+    //     new Chart(chDonut1, {
+    //         type: 'pie',
+    //         data: chDonutData1,
+    //         options: donutOptions
+    //     });
+    //   }
+    // }
+
+
+
+
+
+
+    function statCharts(color, x, id1, title1){
+      // chart colors
+      var colors = [color, '#f9f9f9', '#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+      /* 3 donut charts */
+      var donutOptions1 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: x + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: [title1],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [x, 100-x]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id1);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions1
+        });
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function playerStats(playerId, season) {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/players?id=${playerId}&season=${season}`, options)
+      // return fetch("/static/json/NaymarStats.JSON")
+      .then(response => {
+          return response.json();
+      })
+      .then(data => {
+        console.log(data.response)
+        var i = 0;
+
+        var chartIds = [];
+        var shotsOn = [];
+        var saves = [];
+        var duels = [];
+        var dribbles = [];
+
+        var a = document.getElementById("myTabContent");
+        var b = document.getElementById("leagueTabs");
+
+        if(a.childElementCount > 0){
+          while (a.firstChild) {
+            a.removeChild(a.lastChild);
+          }
+          while (b.firstChild) {
+            b.removeChild(b.lastChild);
+          }
+
+          const node = document.getElementById("home1");
+          const clone = node.cloneNode(true);
+          clone.removeAttribute('style');
+          a.appendChild(clone)
+
+          const node1 = document.getElementById("navItem1");
+          const clone1 = node1.cloneNode(true);
+          clone1.removeAttribute('style');
+          b.appendChild(clone1)
+
+        }
+
+
+        for(var row of data.response[0].statistics){
+          if(row.league['name'] != 'Club Friendlies'){
+            console.log(row)
+
+            const node = document.getElementById("home1");
+            const clone = node.cloneNode(true);
+
+            clone.removeAttribute('id');
+            clone.setAttribute('id', 'row' + i);
+
+            clone.removeAttribute('class');
+            clone.setAttribute('class', 'tab-pane fade');
+
+            clone.removeAttribute('aria-labelledby');
+            clone.setAttribute('aria-labelledby', 'row' + i + '-tab');
+
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[0].children[1].innerHTML = '<img id="teamLogo" style="max-width: auto; height: auto; margin-right: 1%" class="card-img-fluid rounded-0" src="' +  row.team['logo'] +   '" alt="Logo">' + row.team['name'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[1].children[1].innerHTML = row.league['name'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[2].children[1].innerHTML = '<img id="teamLogo" style="max-width: auto; height: auto; margin-right: 1%" class="card-img-fluid rounded-0" src="' +  countryFinder(row.league['country'], countries, countriesLinks) +   '" alt="Logo">';
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[3].children[1].innerHTML = row.league['season'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[4].children[1].innerHTML = row.games['appearences'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[5].children[1].innerHTML = row.games['lineups'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[6].children[1].innerHTML = (Number(row.games['rating'])).toFixed(1);
+
+            if(row.games['position'] != "Goalkeeper"){
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[0].children[1].innerHTML = row.goals['total'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[1].children[1].innerHTML = row.goals['assists'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[2].children[1].innerHTML = ((row.shots['on'] / row.shots['total']) * 100).toFixed(1) + '%';
+            }
+            else{
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[0].children[1].innerHTML = row.goals['saves'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[1].children[1].innerHTML = row.goals['conceded'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[2].children[1].innerHTML = row.goals['assists'];;
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[0].children[0].innerHTML = 'Saves';
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[1].children[0].innerHTML = 'Goals Conceded';
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[2].children[0].innerHTML = 'Assists';
+            }
+            
+            
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[3].children[1].innerHTML = row.passes['total'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[4].children[1].innerHTML = row.passes['key'];
+            
+            if(row.games['position'] != "Goalkeeper"){
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[5].children[1].innerHTML = row.penalty['scored'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[6].children[1].innerHTML = row.penalty['missed'];
+            }
+            else{
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[5].children[1].innerHTML = row.penalty['commited'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[6].children[1].innerHTML = row.penalty['saved'];
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[5].children[0].innerHTML = 'Penalites Committed';
+              clone.children[0].children[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[0].children[6].children[0].innerHTML = 'Penalites Saved';
+            }
+            
+
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[0].children[1].innerHTML = row.shots['total'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[1].children[1].innerHTML = row.shots['on'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[2].children[1].innerHTML = row.cards['yellow'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[3].children[1].innerHTML = row.cards['red'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[4].children[1].innerHTML = row.fouls['drawn'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[5].children[1].innerHTML = row.fouls['committed'];
+            clone.children[0].children[0].children[0].children[0].children[1].children[1].children[2].children[0].children[0].children[0].children[6].children[1].innerHTML = row.tackles['total'];
+
+            clone.children[0].children[1].children[0].children[0].children[1].children[0].id = 'chartRow' + (i+20);
+            clone.children[0].children[2].children[0].children[0].children[1].children[1].children[0].children[0].id = 'chartRow' + (i+40);
+            clone.children[0].children[2].children[0].children[0].children[1].children[1].children[1].children[0].id = 'chartRow' + (i+60);
+
+            chartIds.push('chartRow' + (i+20));
+            chartIds.push('chartRow' + (i+40));
+            chartIds.push('chartRow' + (i+60));
+            shotsOn.push(((row.shots['on'] / row.shots['total']) * 100).toFixed(1));
+            saves.push(((row.goals['saves'] / (row.goals['saves'] + row.goals['conceded'])) * 100).toFixed(1));
+            duels.push(((row.duels['won'] / row.duels['total']) * 100).toFixed(1));
+            dribbles.push(((row.dribbles['success'] / row.dribbles['attempts']) * 100).toFixed(1));
+
+            clone.children[0].children[0].children[0].children[0].children[1].id = 'carouselExampleIndicators' + i;
+
+            clone.children[0].children[0].children[0].children[0].children[1].children[0].children[0].removeAttribute('data-bs-target');
+            clone.children[0].children[0].children[0].children[0].children[1].children[0].children[0].setAttribute('data-bs-target', '#carouselExampleIndicators' + i);
+            clone.children[0].children[0].children[0].children[0].children[1].children[0].children[1].removeAttribute('data-bs-target');
+            clone.children[0].children[0].children[0].children[0].children[1].children[0].children[1].setAttribute('data-bs-target', '#carouselExampleIndicators' + i);
+            clone.children[0].children[0].children[0].children[0].children[1].children[0].children[2].removeAttribute('data-bs-target');
+            clone.children[0].children[0].children[0].children[0].children[1].children[0].children[2].setAttribute('data-bs-target', '#carouselExampleIndicators' + i);
+            clone.children[0].children[0].children[0].children[0].children[1].children[2].removeAttribute('data-bs-target');
+            clone.children[0].children[0].children[0].children[0].children[1].children[2].setAttribute('data-bs-target', '#carouselExampleIndicators' + i);
+            clone.children[0].children[0].children[0].children[0].children[1].children[3].removeAttribute('data-bs-target');
+            clone.children[0].children[0].children[0].children[0].children[1].children[3].setAttribute('data-bs-target', '#carouselExampleIndicators' + i);
+
+            // clone.children[0].children[1].children[0].children[0].children[1].id = 'carouselExampleIndicators20' + i;
+
+            // clone.children[0].children[1].children[0].children[0].children[1].children[0].children[0].removeAttribute('data-bs-target');
+            // clone.children[0].children[1].children[0].children[0].children[1].children[0].children[0].setAttribute('data-bs-target', '#carouselExampleIndicators20' + i);
+            // clone.children[0].children[1].children[0].children[0].children[1].children[0].children[1].removeAttribute('data-bs-target');
+            // clone.children[0].children[1].children[0].children[0].children[1].children[0].children[1].setAttribute('data-bs-target', '#carouselExampleIndicators20' + i);
+            // clone.children[0].children[1].children[0].children[0].children[1].children[2].removeAttribute('data-bs-target');
+            // clone.children[0].children[1].children[0].children[0].children[1].children[2].setAttribute('data-bs-target', '#carouselExampleIndicators20' + i);
+            // clone.children[0].children[1].children[0].children[0].children[1].children[3].removeAttribute('data-bs-target');
+            // clone.children[0].children[1].children[0].children[0].children[1].children[3].setAttribute('data-bs-target', '#carouselExampleIndicators20' + i);
+
+            clone.children[0].children[2].children[0].children[0].children[1].id = 'carouselExampleIndicators40' + i;
+            clone.children[0].children[2].children[0].children[0].children[1].children[0].children[0].removeAttribute('data-bs-target');
+            clone.children[0].children[2].children[0].children[0].children[1].children[0].children[0].setAttribute('data-bs-target', '#carouselExampleIndicators40' + i);
+            clone.children[0].children[2].children[0].children[0].children[1].children[0].children[1].removeAttribute('data-bs-target')
+            clone.children[0].children[2].children[0].children[0].children[1].children[0].children[1].setAttribute('data-bs-target', '#carouselExampleIndicators40' + i);
+            clone.children[0].children[2].children[0].children[0].children[1].children[2].removeAttribute('data-bs-target')
+            clone.children[0].children[2].children[0].children[0].children[1].children[2].setAttribute('data-bs-target', '#carouselExampleIndicators40' + i);
+            clone.children[0].children[2].children[0].children[0].children[1].children[3].removeAttribute('data-bs-target')
+            clone.children[0].children[2].children[0].children[0].children[1].children[3].setAttribute('data-bs-target', '#carouselExampleIndicators40' + i);
+            
+            document.getElementById("myTabContent").appendChild(clone); 
+
+            ////////////////////////////////////////////////////////////
+
+            const node1 = document.getElementById("navItem1");
+            const clone1 = node1.cloneNode(true);
+
+            clone1.children[0].removeAttribute('data-bs-target');
+            clone1.children[0].setAttribute('data-bs-target', '#' + 'row' + i);
+
+            clone1.children[0].removeAttribute('aria-controls');
+            clone1.children[0].setAttribute('aria-controls', 'row' + i);
+
+            clone1.children[0].removeAttribute('aria-selected');
+            clone1.children[0].setAttribute('aria-selected', 'false');
+
+            clone1.children[0].removeAttribute('class');
+            clone1.children[0].setAttribute('class', 'nav-link');
+
+            clone1.children[0].removeAttribute('id');
+            clone1.children[0].setAttribute('id', 'row' + i + '-tab');
+
+            clone1.children[0].innerHTML = '<img class="rounded-0" style="max-width: 45px; height: auto;" src="' + row.league['logo'] + '">'
+
+            document.getElementById("leagueTabs").appendChild(clone1);
+
+            i++;
+          }
+        }
+
+        var a = document.getElementById("myTabContent");
+        a.removeChild(a.children[0]);
+        
+        a.children[0].removeAttribute('class');
+        a.children[0].setAttribute('class', "tab-pane fade show active");
+
+        var a = document.getElementById("leagueTabs");
+        a.removeChild(a.children[0]);
+        a.children[0].removeAttribute('class');
+        a.children[0].setAttribute('class', "nav-link active");
+        a.children[0].removeAttribute('aria-selected');
+        a.children[0].setAttribute('aria-selected', "true");
+
+        var c = 0;
+        for(i = 0; i < chartIds.length ; i = i + 3){
+          if(data.response[0].statistics[0].games['position'] == 'Goalkeeper'){
+            //statCharts(chartIds[i], ['Saves per Attempts'], saves[c]);
+            statCharts('blue', saves[c], chartIds[i], 'Saves per Attempts');
+          }
+          else{
+            //statCharts(chartIds[i], ['Shots on Target'], shotsOn[c]);
+            statCharts('blue', shotsOn[c], chartIds[i], 'Shots on Target');
+          }
+          //statCharts(chartIds[i + 1], ['Duels'], duels[c]);
+          //statCharts(chartIds[i + 2], ['Dribbles'], dribbles[c]);
+          statCharts('orange', duels[c], chartIds[i + 1], 'Duels');
+          statCharts('orange', dribbles[c], chartIds[i + 2], 'Dribbles');
+          c++;
+        }
+
+        console.log(shotsOn);
+        console.log(saves);
+        console.log(duels);
+        console.log(dribbles);
+
+        
+
+      })
+      .catch(error => {
+          console.log(error)
+      }); 
+    };
+
+    
+
+    function playerTrophies(playerId){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/trophies?player=${playerId}`, options)
+      //return fetch("/static/json/NeymarTrophies.JSON")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+
+        var temp = [];
+        var trophies = [];
+        var numbers = [];
+
+        for(var row of data.response){
+          if(row.place == 'Winner'){
+            temp.push(row.league)
+          }
+        }
+        
+        temp.forEach(element => {
+          if(!trophies.includes(element)){
+            trophies.push(element)
+          }
+        });
+
+        trophies.forEach(element => {
+          var c = 0;
+          for(var row of data.response){
+            if(row.league == element && row.place == 'Winner'){
+              c++
+            }
+          }
+          numbers.push(c)
+        });
+
+        console.log(trophies);
+        console.log(numbers);
+
+        table = document.getElementById("tropaia");
+
+        const tableHead = table.querySelector('thead')
+        const tableBody = table.querySelector('tbody')
+
+        tableHead.innerHTML = "<tr></tr>";
+        tableBody.innerHTML = "";
+
+        const cellLeague = document.createElement('th');
+        cellLeague.textContent = 'Trophie';
+        tableHead.querySelector('tr').appendChild(cellLeague);
+
+        const cellNumber = document.createElement('th');
+        cellNumber.textContent = 'Times Won';
+        tableHead.querySelector('tr').appendChild(cellNumber);
+
+        for(i = 0; i < numbers.length; i ++){
+          const rowElement = document.createElement('tr');
+
+          const cellLeague = document.createElement('td');
+          cellLeague.innerHTML = trophies[i];
+          rowElement.appendChild(cellLeague);
+
+          const cellNumber = document.createElement('td');
+          cellNumber.innerHTML = numbers[i];
+          rowElement.appendChild(cellNumber);
+
+          tableBody.appendChild(rowElement);
+        }
+
+
+      })
+      .catch(err => {
+        console.error(err)
+      });
+    }
+
+    function playerTransfers(playerId){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/transfers?player=${playerId}`, options)
+      //return fetch("/static/json/NeymarTransfers.JSON")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        console.log(data.response[0].transfers);
+        table = document.getElementById("transfers");
+
+        const tableHead = table.querySelector('thead')
+        const tableBody = table.querySelector('tbody')
+
+        tableHead.innerHTML = "<tr></tr>";
+        tableBody.innerHTML = "";
+
+        const cellDate = document.createElement('th');
+        cellDate.textContent = 'Date';
+        tableHead.querySelector('tr').appendChild(cellDate);
+
+        const cellFrom = document.createElement('th');
+        cellFrom.textContent = 'From';
+        tableHead.querySelector('tr').appendChild(cellFrom);
+
+        const cellArrow = document.createElement('th');
+        cellArrow.textContent = '';
+        tableHead.querySelector('tr').appendChild(cellArrow);
+
+        const cellTo = document.createElement('th');
+        cellTo.textContent = 'To';
+        tableHead.querySelector('tr').appendChild(cellTo);
+
+        const cellCash = document.createElement('th');
+        cellCash.innerHTML = '<i class="mdi mdi-currency-eur"></i>';
+        tableHead.querySelector('tr').appendChild(cellCash);
+        
+        for(var row of data.response[0].transfers){  
+          const rowElement = document.createElement('tr');
+
+          const cellDate = document.createElement('td');
+          const date = row.date;
+          const [year, month, day] = date.split('-');
+          const result = [day, month, year].join('-');
+          cellDate.innerHTML = result;
+          rowElement.appendChild(cellDate);
+
+          const cellFrom = document.createElement('td');
+          cellFrom.innerHTML = '<img id="teamLogo" style="max-width: auto; height: auto;" class="card-img-fluid rounded-0" src="' +  row.teams.out['logo'] +   '" alt="Logo">';
+          rowElement.appendChild(cellFrom);
+
+          const cellArrow = document.createElement('td');
+          cellArrow.innerHTML = '<div style="color: rgb(63, 180, 17);" class="arrow-1"></div>';
+          rowElement.appendChild(cellArrow);
+          
+
+          const cellTo = document.createElement('td');
+          cellTo.innerHTML = '<img id="teamLogo" style="max-width: auto; height: auto;" class="card-img-fluid rounded-0" src="' +  row.teams.in['logo'] +   '" alt="Logo">';
+          rowElement.appendChild(cellTo);
+
+          const cellCash = document.createElement('td');
+          cellCash.innerHTML = row.type;
+          rowElement.appendChild(cellCash);
+
+          tableBody.appendChild(rowElement);
+        }
+      })
+      .catch(err => {
+        console.error(err)
+      });
+    }
+
+    
+    function playerInjuries(playerId, season){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/injuries?season=${season}&player=${playerId}`, options)
+      //return fetch("/static/json/NeymarInjuries.JSON")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        console.log(data.response);
+
+        table = document.getElementById("injuries");
+
+        const tableHead = table.querySelector('thead')
+        const tableBody = table.querySelector('tbody')
+
+        tableHead.innerHTML = "<tr></tr>";
+        tableBody.innerHTML = "";
+
+        const cellReason = document.createElement('th');
+        cellReason.textContent = 'Reason';
+        tableHead.querySelector('tr').appendChild(cellReason);
+
+        const cellGames = document.createElement('th');
+        cellGames.textContent = 'Missed Games';
+        tableHead.querySelector('tr').appendChild(cellGames);
+
+        var temp= [];
+        var reasons = [];
+        var numbers = [];
+
+        for(var row of data.response){
+          temp.push(row.player.reason)
+        }
+
+        temp.forEach(element => {
+          if(!reasons.includes(element)){
+            reasons.push(element)
+          }
+        });
+
+        reasons.forEach(element => {
+          var c = 0;
+          for(var row of data.response){
+            if(row.player.reason == element){
+              c++
+            }
+          }
+          numbers.push(c)
+        });
+
+        console.log(reasons);
+        console.log(numbers);
+
+        var sum = 0;
+
+        for(i = 0; i < numbers.length; i++){  
+          const rowElement = document.createElement('tr');
+
+          const cellReason = document.createElement('td');
+          cellReason.innerHTML = reasons[i];
+          rowElement.appendChild(cellReason);
+
+          const cellGames = document.createElement('td');
+          cellGames.innerHTML = numbers[i];
+          rowElement.appendChild(cellGames);
+
+          tableBody.appendChild(rowElement);
+
+          sum += numbers[i];
+        }
+
+        const rowElement = document.createElement('tr');
+
+        const cellReason1 = document.createElement('td');
+        cellReason1.innerHTML = 'Total';
+        rowElement.appendChild(cellReason1);
+
+        const cellGames1 = document.createElement('td');
+        cellGames1.innerHTML = sum;
+        rowElement.appendChild(cellGames1);
+
+        tableBody.appendChild(rowElement);
+
+        barChart("horizontalBar", numbers, reasons)
+      })
+      .catch(err => {
+        console.error(err)
+      });
+    }
+
+    function barChart(id, data, labels){
+      var ctxB = document.getElementById(id).getContext('2d');
+      var myBarChart = new Chart(ctxB, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: '# of Votes',
+            data: data,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    }
+
+
+    var countries = ['Scotland', 'Wales', 'England', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 
+'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of Congo', 'Republic of Congo', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Fiji', 'Finland', 'France', 
+'Gabon', 'The Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', "Côte d'Ivoire", 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'North Korea', 'South Korea', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Federated States of Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and Grenadines', 'Samoa', 'San Marino', 
+'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 
+'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe', 'Abkhazia', 'Artsakh', 'Cook Islands', 'Kosovo', 'Niue', 'Turkish Republic of Northern Cyprus', 'Sahrawi Arab Democratic Republic', 'Somaliland', 'South Ossetia', 'Republic of China', 'Transnistria']
+    var countriesLinks = ['https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Scotland.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Wales.svg', 'https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Belgium_%28civil%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg', 'https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg', 'https://upload.wikimedia.org/wikipedia/en/c/cf/Flag_of_Canada.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Cape_Verde.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Central_African_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Chad.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Republic_of_the_Congo.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Costa_Rica.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Dominica.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Equatorial_Guinea.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Eritrea.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Fiji.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg', 'https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Gabon.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg', 'https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg', 
+'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Grenada.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Honduras.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg', 'https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg', 'https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg', 'https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg', 
+'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_North_Korea.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Kyrgyzstan.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Latvia.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Liberia.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Liechtenstein.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Luxembourg.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag_of_Macedonia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Madagascar.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Maldives.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Marshall_Islands.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Mauritius.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_the_Federated_States_of_Micronesia.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Moldova.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Montenegro.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Namibia.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Nauru.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg', 'https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg', 'https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Saint_Lucia.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Samoa.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_San_Marino.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Sao_Tome_and_Principe.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Sierra_Leone.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Slovenia.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Solomon_Islands.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_South_Sudan.svg', 'https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Swaziland.svg', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Switzerland_%28Pantone%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Syria.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tanzania.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Togo.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Tonga.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Trinidad_and_Tobago.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Turkmenistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tuvalu.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Flag_of_Uganda.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg', 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg', 'https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_the_Vatican_City.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Zambia.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Zimbabwe.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Abkhazia.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Flag_of_Artsakh.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_the_Cook_Islands.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kosovo.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Niue.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_the_Sahrawi_Arab_Democratic_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Somaliland.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_South_Ossetia.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Transnistria_%28state%29.svg']
+
+    function countryFinder(country, countries, countriesLinks){
+      if(countries.includes(country)){
+        var index = countries.indexOf(country)
+        return countriesLinks[index];
+      }
+      else{
+        return country;
+      }
+    }
+
+
+    playerInjuries(document.getElementById('id_player').content, 2021)
+    playerTransfers(document.getElementById('id_player').content)
+    playerTrophies(document.getElementById('id_player').content)
+    playerStats(document.getElementById('id_player').content, 2021) 
+    
+
+  </script>
+  <script src="/static/js/centeredDonutText.js"></script>
+  {% endblock %}
+</body>
+
+</html>
+

@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta id="id_league" content="{{league_id}}">
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/flags/css/flag-icon.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/static/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/static/images/favicon.png" />
+
+  <style>
+    /* .card {
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    } */
+    .arrow-1 {
+      width:100px;
+      height:30px;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .arrow-1:before {
+      content: "";
+      background: currentColor;
+      width:15px;
+      transform: scaleX(-1);
+      clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));
+      animation: a1 1.5s infinite linear;
+    }
+    @keyframes a1 {
+      90%,100%{flex-grow: 1}
+    }
+
+    .carousel-inner {
+      transition-property: opacity;
+    }
+
+    @media only screen and (max-device-width: 500px) {
+      #faceLogo {
+        max-width: 20%;
+      }
+    }
+
+
+
+
+    .arrow-10 {
+      width:30px;
+      height:60px;
+      padding-top: 60px;
+      display: grid;
+      background: 
+        linear-gradient(currentColor 0 0) bottom/10px calc(100% - 15px),
+        conic-gradient(from 134deg at top,#0000 ,currentColor 1deg 90deg,#0000 91deg) top/100% 15px;
+      background-origin: content-box;
+      background-repeat: no-repeat;
+      animation: a10-0 3s infinite linear;
+    }
+    /* .arrow-10:before,
+    .arrow-10:after {
+      content: "";
+      grid-area: 1/1;
+      background:inherit;
+      background-size: 10px calc(100% - 25px),100% 25px;
+      animation: a10-1 2s infinite;
+    }
+    .arrow-10:after {
+      background-size: 10px calc(100% - 30px),100% 30px;
+      animation: a10-2 2s infinite;
+    } */
+    @keyframes a10-0 {
+      25%,100% {padding-top:0px}
+    }
+
+    @keyframes a10-1 {
+      0%,25%   {margin:60px -10px 0}
+      50%,100% {margin:8px  -10px 0}
+    }
+    @keyframes a10-2 {
+      0%,50%   {margin:60px -15px 0}
+      75%,100% {margin:20px -15px 0}
+    }
+  </style>
+  {{ JSGlue.include() }}
+</head>
+<body>
+  {% block content %}
+  <div class="container-scroller">
+    <div class="row p-0 m-0 proBanner" id="proBanner">
+      <div class="col-md-12 p-0 m-0">
+        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="ps-lg-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <button id="bannerClose" class="btn border-0 p-0">
+              <i class="mdi mdi-close text-white me-0"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">UI Elements</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Form elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Icons</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">help</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link ps-0 active" href="{{ url_for('basket_league_stats') }}" aria-selected="true">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('basketball_teams') }}" aria-selected="false">Clubs</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="" aria-selected="false">Fixtures</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="" aria-selected="false">Results</a>
+                    </li> -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('basket_league_standings') }}" aria-selected="false">Standings</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('basket_league_news') }}" aria-selected="false">News</a>
+                    </li>
+                  </ul>
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                    <h2 style="margin-bottom: 2%; margin-left: 0.5%;" class="card-title fw-bold">Stats</h2>
+                    <div class="row">
+                      <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="d-sm-flex justify-content-between align-items-start">
+                              <div>
+                                <h4 class="card-title card-title-dash">League Stats</h4>
+                                <p class="card-subtitle card-subtitle-dash">Below you can see the stats of all total performances this year.</p>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <form>
+                                <div class="form-row d-flex justify-content-between">
+                                  <div class="form-group col-md-4">
+                                    <label for="inputState2" style="text-align: center;">Season</label>
+                                    <select id="inputState2" class="form-control" onchange="date(value)">
+                                      <option value="1983">1983-84</option>
+                                      <option value="1984">1984-85</option>
+                                      <option value="1985">1985-86</option>
+                                      <option value="1986">1986-87</option>
+                                      <option value="1987">1987-88</option>
+                                      <option value="1988">1988-89</option>
+                                      <option value="1989">1989-90</option>
+                                      <option value="1990">1990-91</option>
+                                      <option value="1991">1991-92</option>
+                                      <option value="1992">1992-93</option>
+                                      <option value="1993">1993-94</option>
+                                      <option value="1994">1994-95</option>
+                                      <option value="1995">1995-96</option>
+                                      <option value="1996">1996-97</option>
+                                      <option value="1997">1997-98</option>
+                                      <option value="1998">1999-99</option>
+                                      <option value="1999">1999-00</option>
+                                      <option value="2000">2000-01</option>
+                                      <option value="2001">2001-02</option>
+                                      <option value="2002">2002-03</option>
+                                      <option value="2003">2003-04</option>
+                                      <option value="2004">2004-05</option>
+                                      <option value="2005">2005-06</option>
+                                      <option value="2006">2006-07</option>
+                                      <option value="2007">2007-08</option>
+                                      <option value="2008">2008-09</option>
+                                      <option value="2009">2009-10</option>
+                                      <option value="2010">2010-11</option>
+                                      <option value="2011">2011-12</option>
+                                      <option value="2012">2012-13</option>
+                                      <option value="2013">2013-14</option>
+                                      <option value="2014">2014-15</option>
+                                      <option value="2015">2015-16</option>
+                                      <option value="2016">2016-17</option>
+                                      <option value="2017">2017-18</option>
+                                      <option value="2018">2018-19</option>
+                                      <option value="2019">2019-20</option>
+                                      <option value="2020">2020-21</option>
+                                      <option selected value="2021">2021-22</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="table-responsive pt-3">
+                              <table class="table table-bordered" id="trapezi" style="text-align: center;">
+                                <thead>
+                                  {% for i in range(0, 16) %}
+                                    <th>{{ headers[i] }}</th>
+                                  {% endfor %}
+                                </thead>
+                                <tbody>
+                                  {% for stat in stats %}
+                                    <tr id='a{{ stat[1][0:4] }}'>
+                                      {% for i in range(0, 16) %}
+                                        <td>{{ stat[i] }}</td>
+                                      {% endfor %}
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table><br>
+                              <table class="table table-bordered" id="trapezi1" style="text-align: center;">
+                                <thead>
+                                  {% for i in range(16, 32) %}
+                                    <th>{{ headers[i] }}</th>
+                                  {% endfor %}
+                                </thead>
+                                <tbody>
+                                  {% for stat in stats %}
+                                    <tr id='b{{ stat[1][0:4] }}'>
+                                      {% for i in range(16, 32) %}
+                                        <td>{{ stat[i] }}</td>
+                                      {% endfor %}
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <canvas id="chDonut1" height="200"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <canvas id="chDonut2" height="200"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div> -->
+
+                    <div class="row row-flex">
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Player Stats</h4>
+                            <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <canvas id="chDonut1"></canvas>
+                                </div>
+                                <div class="carousel-item">
+                                  <canvas id="chDonut4"></canvas>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Player Stats</h4>
+                            <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <canvas id="chDonut2"></canvas>
+                                </div>
+                                <div class="carousel-item">
+                                  <canvas id="chDonut5"></canvas>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Player Stats</h4>
+                            <div id="carouselExampleIndicators3" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <canvas id="chDonut3"></canvas>
+                                </div>
+                                <div class="carousel-item">
+                                  <canvas id="chDonut6"></canvas>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <div class="d-sm-flex justify-content-between align-items-start">
+                              <div>
+                                <h4 class="card-title card-title-dash">Variations through the years</h4>
+                                <p class="card-subtitle card-subtitle-dash">Below you can see the evolution of every single stat between two specific seasons.</p>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-md-4">
+                                <label for="inputState1" style="text-align: center;">From</label>
+                                <select id="inputState1" class="form-control">
+                                  <option value="" disabled selected>Select Season</option>
+                                  <option value="1983">1983-84</option>
+                                  <option value="1984">1984-85</option>
+                                  <option value="1985">1985-86</option>
+                                  <option value="1986">1986-87</option>
+                                  <option value="1987">1987-88</option>
+                                  <option value="1988">1988-89</option>
+                                  <option value="1989">1989-90</option>
+                                  <option value="1990">1990-91</option>
+                                  <option value="1991">1991-92</option>
+                                  <option value="1992">1992-93</option>
+                                  <option value="1993">1993-94</option>
+                                  <option value="1994">1994-95</option>
+                                  <option value="1995">1995-96</option>
+                                  <option value="1996">1996-97</option>
+                                  <option value="1997">1997-98</option>
+                                  <option value="1998">1999-99</option>
+                                  <option value="1999">1999-00</option>
+                                  <option value="2000">2000-01</option>
+                                  <option value="2001">2001-02</option>
+                                  <option value="2002">2002-03</option>
+                                  <option value="2003">2003-04</option>
+                                  <option value="2004">2004-05</option>
+                                  <option selected value="2005">2005-06</option>
+                                  <option value="2006">2006-07</option>
+                                  <option value="2007">2007-08</option>
+                                  <option value="2008">2008-09</option>
+                                  <option value="2009">2009-10</option>
+                                  <option value="2010">2010-11</option>
+                                  <option value="2011">2011-12</option>
+                                  <option value="2012">2012-13</option>
+                                  <option value="2013">2013-14</option>
+                                  <option value="2014">2014-15</option>
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option value="2021">2021-22</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label for="inputState2" style="text-align: center;">To</label>
+                                <select id="inputState2" class="form-control">
+                                  <option value="" disabled selected>Select Season</option>
+                                  <option value="1983">1983-84</option>
+                                  <option value="1984">1984-85</option>
+                                  <option value="1985">1985-86</option>
+                                  <option value="1986">1986-87</option>
+                                  <option value="1987">1987-88</option>
+                                  <option value="1988">1988-89</option>
+                                  <option value="1989">1989-90</option>
+                                  <option value="1990">1990-91</option>
+                                  <option value="1991">1991-92</option>
+                                  <option value="1992">1992-93</option>
+                                  <option value="1993">1993-94</option>
+                                  <option value="1994">1994-95</option>
+                                  <option value="1995">1995-96</option>
+                                  <option value="1996">1996-97</option>
+                                  <option value="1997">1997-98</option>
+                                  <option value="1998">1999-99</option>
+                                  <option value="1999">1999-00</option>
+                                  <option value="2000">2000-01</option>
+                                  <option value="2001">2001-02</option>
+                                  <option value="2002">2002-03</option>
+                                  <option value="2003">2003-04</option>
+                                  <option value="2004">2004-05</option>
+                                  <option value="2005">2005-06</option>
+                                  <option value="2006">2006-07</option>
+                                  <option value="2007">2007-08</option>
+                                  <option value="2008">2008-09</option>
+                                  <option value="2009">2009-10</option>
+                                  <option value="2010">2010-11</option>
+                                  <option value="2011">2011-12</option>
+                                  <option value="2012">2012-13</option>
+                                  <option value="2013">2013-14</option>
+                                  <option value="2014">2014-15</option>
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option selected value="2021">2021-22</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label for="inputState3" style="text-align: center;">Statistic</label>
+                                <select id="inputState3" class="form-control">
+                                  <option value="" disabled selected>Select Statistic</option>
+                                  <option value="8">Field Goals</option>
+                                  <option value="9">Field Goals Attempts</option>
+                                  <option selected value="10">3-Point Field Goals</option>
+                                  <option value="11">3-Point Field Goals Attempts</option>
+                                  <option value="12">Free Throws</option>
+                                  <option value="13">Free Throw Attempts</option>
+                                  <option value="14">Offensive Rebounds</option>
+                                  <option value="15">Defensive Rebounds</option>
+                                  <option value="16">Total Rebounds</option>
+                                  <option value="17">Assists</option>
+                                  <option value="18">Steals</option>
+                                  <option value="19">Blocks</option>
+                                  <option value="20">Turnovers</option>
+                                  <option value="21">Personal Fouls</option>
+                                  <option value="22">Points</option>
+                                  <option value="23">Field Goal %</option>
+                                  <option value="24">3-Point Field Goal %</option>
+                                  <option value="25">Free Throws %</option>
+                                  <option value="26">Pace</option>
+                                  <option value="27">Effective Field Goal %</option>
+                                  <option value="28">Turnover %</option>
+                                  <option value="29">Offensive Rebound %</option>
+                                  <option value="30">Free Throws Per Field Goal Attempt</option>
+                                  <option value="31">Offensive Rating</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <button style="margin-top: 3%; margin-bottom: 5%;" id="koumpaki" type="button" class="btn btn-primary" 
+                                onclick="
+                                  var e1 = document.getElementById('inputState1'); 
+                                  var s1 = e1.options[e1.selectedIndex].value;
+
+                                  var e2 = document.getElementById('inputState2'); 
+                                  var s2 = e2.options[e2.selectedIndex].value;
+
+                                  var e3 = document.getElementById('inputState3'); 
+                                  var stat = e3.options[e3.selectedIndex].value;
+
+                                  console.log(s1);
+                                  console.log(s2);
+                                  console.log(stat);
+
+                                  dataParser(s1, s2, stat);
+                              
+                                ">
+                              Compare Players</button>
+                            </div>
+                            <canvas id="chart"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title card-title-dash">Variation between seasons</h4><br>
+                            <div style="padding:10%">
+                              <div class="row">
+                                <h2 class="d-flex justify-content-center">Variation Percentage</h2>
+                              </div>
+                              <div class="row">
+                                <h1 id="varPer" style="padding:15%" class="d-flex justify-content-center">100%</h1>
+                              </div>  
+                              <div class="row">
+                                <h2 class="d-flex justify-content-center">Actual Variation</h2>
+                              </div>
+                              <div class="row">
+                                <h1 id="var" style="padding:15%" class="d-flex justify-content-center">10.3</h1>
+                              </div>  
+                            </div>     
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h2 style="margin-bottom: 2%; margin-left: 0.5%;" class="card-title fw-bold">Latest News</h2>
+                    <div id="articles" class="row">
+                      <div id="article" class="col-xl-3 col-lg-3 col-md-4 col-sm-6 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem; height: 15rem;">
+                          <div class="card-body">
+                            <div class="container">
+                              <figure class="figure">
+                                <img id="sourceImage" style="height: 150px; width: auto;" src="" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                                <figcaption style="text-size-adjust: auto; font-weight: bold; height: 50px; width: auto;" id="caption" class="figure-caption"></figcaption>
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table style="display: none;">
+                      {% for stat in stats %}
+                        <tr id = {{stat[1][0 : 4]}}>
+                        {% for i in stat %}
+                          <td>{{ i }}</td>
+                        {% endfor %}
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/static/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/static/js/off-canvas.js"></script>
+  <script src="/static/js/hoverable-collapse.js"></script>
+  <script src="/static/js/template.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+  <script>
+
+    function statCharts(color, x, y, z, id1, id2, id3, title1, title2, title3){
+      // chart colors
+      var colors = [color, '#f9f9f9', '#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+      /* 3 donut charts */
+      var donutOptions1 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: x + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions2 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: y + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions3 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: z + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: [title1],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [x, 100-x]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id1);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions1
+        });
+      }
+
+      var chDonutData2 = {
+          labels: [title2],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [y, 100-y]
+            }
+          ],
+          
+      };
+
+      var chDonut2 = document.getElementById(id2);
+      if (chDonut2) {
+        new Chart(chDonut2, {
+            type: 'pie',
+            data: chDonutData2,
+            options: donutOptions2
+        });
+      }
+
+      var chDonutData3 = {
+          labels: [title3],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [z, 100-z]
+            }
+          ],
+          
+      };
+
+      var chDonut3 = document.getElementById(id3);
+      if (chDonut3) {
+        new Chart(chDonut3, {
+            type: 'pie',
+            data: chDonutData3,
+            options: donutOptions3
+        });
+      }
+    }
+
+    
+
+    function lineChart(data, categories){
+      var ctxL = document.getElementById("chart").getContext('2d');
+      var myLineChart = new Chart(ctxL, {
+        type: 'line',
+        data: {
+          labels: categories,
+          datasets: [{
+            label: "My First dataset",
+            data: data,
+            backgroundColor: [
+              'rgba(105, 0, 132, .2)',
+            ],
+            borderColor: [
+              'rgba(200, 99, 132, .7)',
+            ],
+            borderWidth: 2
+          },
+          // {
+          //   label: "My Second dataset",
+          //   data: [28, 48, 40, 19, 86, 27, 90],
+          //   backgroundColor: [
+          //     'rgba(0, 137, 132, .2)',
+          //   ],
+          //   borderColor: [
+          //     'rgba(0, 10, 130, .7)',
+          //   ],
+          //   borderWidth: 2
+          // }
+          ]
+        },
+        options: {
+          scales: {
+            xAxes: [{
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+            }],
+            // yAxes: [{
+            //     gridLines: {
+            //         color: "rgba(0, 0, 0, 0)",
+            //     }   
+            // }]
+        },
+          responsive: true
+        }
+      });
+    }
+
+
+    function dataParser(s1, s2, stat){
+      var lista = [];
+      var lista2 = [];
+      for(i = s1; i <= s2; i++){
+        var a = document.getElementById(i).children[stat].innerHTML;
+        lista.push(a);
+        lista2.push(i);
+      }
+      const max = Math.max(...lista);
+      const min = Math.min(...lista);
+
+      const first = lista[0];
+      const last = lista[lista.length - 1];
+
+      //console.log(lista2);
+      lineChart(lista, lista2)
+
+      console.log(first);
+      console.log(last);
+
+
+      if(Number(last) > Number(first)){
+        document.getElementById('varPer').innerHTML = '+' + (((Number(last) - Number(first)) / Number(first)) * 100).toFixed(1) + '%';
+        document.getElementById('var').innerHTML = '+' + (Number(last) - Number(first)).toFixed(2);
+      }
+      else if(Number(last) < Number(first)){
+        document.getElementById('varPer').innerHTML = (((Number(last) - Number(first)) / Number(first)) * 100).toFixed(1) + '%';
+        document.getElementById('var').innerHTML = (Number(last) - Number(first)).toFixed(2);
+      }
+      
+      
+    }
+
+    
+
+    function date(season){
+      for(i = 2003; i < 2023; i++){
+        if(document.getElementById('a' + i).style.display == 'none'){
+          document.getElementById('a' + i).removeAttribute('style');
+        }
+        if(document.getElementById('b' + i).style.display == 'none'){
+          document.getElementById('b' + i).removeAttribute('style');
+        }
+      }
+
+      for(i = 2003; i < 2023; i++){
+        if(i != season){
+          document.getElementById('a' + i).style.display = 'none';
+          document.getElementById('b' + i).style.display = 'none';
+        }
+      }
+
+      var fgp = ((document.getElementById('b' + season).children[7].innerHTML)*100).toFixed(1);
+      var tpp = ((document.getElementById('b' + season).children[8].innerHTML)*100).toFixed(1);
+      var ftp = ((document.getElementById('b' + season).children[9].innerHTML)*100).toFixed(1);
+
+      var efg = ((document.getElementById('b' + season).children[11].innerHTML)*100).toFixed(1);
+      var tov = Number(document.getElementById('b' + season).children[12].innerHTML).toFixed(1);
+      var orb = Number(document.getElementById('b' + season).children[13].innerHTML).toFixed(1);
+
+      statCharts('blue', fgp, ftp, tov, 'chDonut1', 'chDonut3', 'chDonut5', 'Field Goal %', 'Free Throws %', 'Turnover %')
+      statCharts('orange', tpp, efg, orb, 'chDonut2', 'chDonut4', 'chDonut6', '3-Point Field Goal %', 'Effective Field Goal %', 'Offensive Rebound %')
+    }
+
+    // fgp, ftp, tov
+    // tpp, efg, orb
+
+
+
+    function getNews(){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
+        }
+      };
+
+      return fetch('https://nba-latest-news.p.rapidapi.com/news', options)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          var c = 0;
+          for(var row of data){
+            if(c < 4){
+              console.log(row)
+
+              const node = document.getElementById("article");
+              const clone = node.cloneNode(true);
+
+              if(row.source == 'bleacher_report'){
+                var source = 'https://getlogo.net/wp-content/uploads/2019/07/bleacher-report-logo-vector.png';
+              }
+              else if(row.source == 'espn'){
+                var source = 'https://logowik.com/content/uploads/images/espn5188.jpg';
+              }
+              else if(row.source == 'nba'){
+                var source = 'https://seeklogo.com/images/N/nba-logo-41668C66DB-seeklogo.com.png';
+              }
+              else if(row.source == 'nba_canada'){
+                var source = 'https://download.logo.wine/logo/NBA_TV_Canada/NBA_TV_Canada-Logo.wine.png';
+              }
+              else if(row.source == 'slam'){
+                var source = 'https://imgix.cosmicjs.com/7d1bf900-e4b9-11eb-aaa7-f94d35ca882e-slam.png';
+              }
+              else if(row.source == 'yahoo'){
+                var source = 'https://images.squarespace-cdn.com/content/v1/5ff494b9931735466ce28d5b/1622647837290-EC9JYOEY3W8CZ9HSNKRC/Yahoo_Sports_New_Logo.jpg';
+              }
+
+              clone.children[0].children[0].children[0].children[0].children[0].src = source;
+              clone.children[0].children[0].children[0].children[0].children[1].innerHTML = row.title;
+              clone.setAttribute('onclick', 'window.open("' + row.url + '");')
+              
+              document.getElementById("articles").appendChild(clone);
+              c++
+            }
+          }
+          const list = document.getElementById("articles");
+          list.removeChild(list.firstElementChild);
+        })
+        .catch(err => console.error(err));
+    }
+
+
+
+
+
+
+    date(2021)
+    getNews()
+    dataParser(2005, 2021, 10)
+    
+
+    document.getElementById('aSeas').style.display = 'none';
+    document.getElementById('bSeas').style.display = 'none';
+
+    //centered text plugin
+    
+    // Chart.pluginService.register({
+    //   beforeDraw: function(chart) {
+    //     if (chart.config.options.elements.center) {
+    //       // Get ctx from string
+    //       var ctx = chart.chart.ctx;
+
+    //       // Get options from the center object in options
+    //       var centerConfig = chart.config.options.elements.center;
+    //       var fontStyle = centerConfig.fontStyle || 'Arial';
+    //       var txt = centerConfig.text;
+    //       var color = centerConfig.color || '#000';
+    //       var maxFontSize = centerConfig.maxFontSize || 75;
+    //       var sidePadding = centerConfig.sidePadding || 20;
+    //       var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
+    //       // Start with a base font of 30px
+    //       ctx.font = "30px " + fontStyle;
+
+    //       // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+    //       var stringWidth = ctx.measureText(txt).width;
+    //       var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+
+    //       // Find out how much the font can grow in width.
+    //       var widthRatio = elementWidth / stringWidth;
+    //       var newFontSize = Math.floor(30 * widthRatio);
+    //       var elementHeight = (chart.innerRadius * 2);
+
+    //       // Pick a new font size so it will not be larger than the height of label.
+    //       var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+    //       var minFontSize = centerConfig.minFontSize;
+    //       var lineHeight = centerConfig.lineHeight || 25;
+    //       var wrapText = false;
+
+    //       if (minFontSize === undefined) {
+    //         minFontSize = 20;
+    //       }
+
+    //       if (minFontSize && fontSizeToUse < minFontSize) {
+    //         fontSizeToUse = minFontSize;
+    //         wrapText = true;
+    //       }
+
+    //       // Set font settings to draw it correctly.
+    //       ctx.textAlign = 'center';
+    //       ctx.textBaseline = 'middle';
+    //       var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+    //       var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+    //       ctx.font = fontSizeToUse + "px " + fontStyle;
+    //       ctx.fillStyle = color;
+
+    //       if (!wrapText) {
+    //         ctx.fillText(txt, centerX, centerY);
+    //         return;
+    //       }
+
+    //       var words = txt.split(' ');
+    //       var line = '';
+    //       var lines = [];
+
+    //       // Break words up into multiple lines if necessary
+    //       for (var n = 0; n < words.length; n++) {
+    //         var testLine = line + words[n] + ' ';
+    //         var metrics = ctx.measureText(testLine);
+    //         var testWidth = metrics.width;
+    //         if (testWidth > elementWidth && n > 0) {
+    //           lines.push(line);
+    //           line = words[n] + ' ';
+    //         } else {
+    //           line = testLine;
+    //         }
+    //       }
+
+    //       // Move the center up depending on line height and number of lines
+    //       centerY -= (lines.length / 2) * lineHeight;
+
+    //       for (var n = 0; n < lines.length; n++) {
+    //         ctx.fillText(lines[n], centerX, centerY);
+    //         centerY += lineHeight;
+    //       }
+    //       //Draw text in center
+    //       ctx.fillText(line, centerX, centerY);
+    //     }
+    //   }
+    // });
+    
+  </script>
+  <script src="/static/js/centeredDonutText.js"></script>
+  {% endblock %}
+</body>
+
+</html>
+
+

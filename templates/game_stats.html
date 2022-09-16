@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta id="id_player" content="{{teamId}}">
+  <meta id="headshots" content="{{data}}">
+  <meta id="id_game" content="{{game_id}}">
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/flags/css/flag-icon.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/static/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/static/images/favicon.png" />
+  <!-- Apexcharts -->
+  <script>
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+      )
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- Apexcharts -->
+</head>
+<body>
+  {% block content %}
+  <div id="katina" style="display: none;">
+  {% for x in data %}
+    <div id="{{x[0]}}">{{x[1]}}</div>
+  {% endfor %}
+  </div>
+  <div class="container-scroller">
+    <div class="row p-0 m-0 proBanner" id="proBanner">
+      <div class="col-md-12 p-0 m-0">
+        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="ps-lg-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <button id="bannerClose" class="btn border-0 p-0">
+              <i class="mdi mdi-close text-white me-0"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">UI Elements</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Form elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Icons</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">help</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Game Stats</h4>
+                  <div class="row">
+                    <div class="col-2">
+                      <div clas="row">
+                        <h1 id="n1" style="text-align: center;"></h1>
+                        <img id="logo1" src=""
+                         class="img-fluid" alt="Wild Landscape"  style="max-width: 210px; height:auto; margin-left: auto; margin-right: auto;"/>
+                         <h1 id="p1" style="text-align: center; padding: 20%;"></h1>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <div id="chart"></div>
+                    </div>
+                    <div class="col-2">
+                      <div clas="row">
+                        <h1 id="n2" style="text-align: center;"></h1>
+                        <img id="logo2" src=""
+                        class="img-fluid" alt="Wild Landscape" style="max-width: 210px; height:auto; margin-left: auto; margin-right: auto;"/>
+                        <h1 id="p2" style="text-align: center; padding: 20%;"></h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row flex-grow" style="text-align: center;">
+            <div class="col-4 grid-margin stretch-card">
+              <div class="card card-rounded">
+                <div class="card-body">
+                  <h4 class="card-title">Field Goal Percentages %</h4>
+                  <canvas id="chDonut1" height="200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 grid-margin stretch-card">
+              <div class="card card-rounded">
+                <div class="card-body">
+                  <h4 class="card-title">Free Throw Percentages %</h4>
+                  <canvas id="chDonut2" height="200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 grid-margin stretch-card">
+              <div class="card card-rounded">
+                <div class="card-body">
+                  <h4 class="card-title">3 Pointers Percentages %</h4>
+                  <canvas id="chDonut3" height="200"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title" id="awayTeam">Hoverable Table</h4>
+                <!-- <p class="card-description">
+                  Add class <code>.table-hover</code>
+                </p> -->
+                <div class="table-responsive">
+                  <table class="table table-hover" id="trapezi1">
+                    <thead style="text-align: center;">
+                    </thead>
+                    <tbody style="text-align: center;">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title" id="homeTeam">Hoverable Table</h4>
+                <!-- <p class="card-description">
+                  Add class <code>.table-hover</code>
+                </p> -->
+                <div class="table-responsive">
+                  <table class="table table-hover" id="trapezi2">
+                    <thead style="text-align: center;">
+                    </thead>
+                    <tbody style="text-align: center;">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/static/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/static/js/off-canvas.js"></script>
+  <script src="/static/js/hoverable-collapse.js"></script>
+  <script src="/static/js/template.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/Chart.roundedBarCharts.js"></script>
+  <script src="/static/js/centeredDonutText.js"></script>
+  <!-- End custom js for this page-->
+  <script>
+    function bidirectionalChart(data1, data2, labels){
+      var options = {
+          series: [{
+          data: data1
+        }, {
+          data: data2
+        }],
+          chart: {
+          type: 'bar',
+          height: 430
+        },
+        plotOptions: {
+          bar: {
+            vertical: true,
+            dataLabels: {
+              position: 'top',
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          offsetY: -15,
+          style: {
+            fontSize: '10px',
+            colors: ['#000']
+          }
+        },
+        stroke: {
+          show: true,
+          width: 1,
+          colors: ['#fff']
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+        },
+        xaxis: {
+          categories: labels,
+        },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    }
+
+    
+    
+
+
+    function getGamesStats(gameId) {
+        //return fetch("/static/json/9461.JSON")
+        const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f',
+            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+          }
+        };
+
+        return fetch(`https://api-nba-v1.p.rapidapi.com/games/statistics?id=${gameId}`, options)
+        .then(response => {
+            //console.log(response);
+            return response.json();
+        })
+        .then(data => {
+          var homeArray = [];
+          var awayArray = [];
+          var percents = [];
+          var teamIds = [];
+          var teamNames = [];
+          var returned = [];
+
+          var labels = ['Points','Assists','Total Rebounds','Defensive Rebounds','Offensive Rebounds','Field Goals Made','Field Goals Attempted','Free Throws Made','Free Throws Attempted','3 Pointers Made','3 Pointers Attempted','Steals','Blocks','Turnovers'];
+          var labels = ['P','AS','TotREB','DefREB','OffREB','FGM','FGA','FTM','FTA','3PM','3PA','ST','BL','TO'];
+
+          document.getElementById('logo1').src = data.response[0].team['logo'];
+          document.getElementById('logo2').src = data.response[1].team['logo'];
+          document.getElementById('n1').innerHTML = data.response[0].team['code'];
+          document.getElementById('n2').innerHTML = data.response[1].team['code'];
+          document.getElementById('p1').innerHTML = data.response[0].statistics[0].points;
+          document.getElementById('p2').innerHTML = data.response[1].statistics[0].points;
+
+          awayArray.push(data.response[0].statistics[0].points);
+          awayArray.push(data.response[0].statistics[0].assists);
+          awayArray.push(data.response[0].statistics[0].totReb);
+          awayArray.push(data.response[0].statistics[0].defReb);
+          awayArray.push(data.response[0].statistics[0].offReb);
+          awayArray.push(data.response[0].statistics[0].fgm);
+          awayArray.push(data.response[0].statistics[0].fga);
+          awayArray.push(data.response[0].statistics[0].ftm);
+          awayArray.push(data.response[0].statistics[0].fta);
+          awayArray.push(data.response[0].statistics[0].tpm);
+          awayArray.push(data.response[0].statistics[0].tpa);
+          awayArray.push(data.response[0].statistics[0].steals);
+          awayArray.push(data.response[0].statistics[0].blocks);
+          awayArray.push(data.response[0].statistics[0].turnovers);
+          //awayArray.push(Number(data.response[0].statistics[0].plusMinus));
+          
+          homeArray.push(data.response[1].statistics[0].points);
+          homeArray.push(data.response[1].statistics[0].assists);
+          homeArray.push(data.response[1].statistics[0].totReb);
+          homeArray.push(data.response[1].statistics[0].defReb);
+          homeArray.push(data.response[1].statistics[0].offReb);
+          homeArray.push(data.response[1].statistics[0].fgm);
+          homeArray.push(data.response[1].statistics[0].fga);
+          homeArray.push(data.response[1].statistics[0].ftm);
+          homeArray.push(data.response[1].statistics[0].fta);
+          homeArray.push(data.response[1].statistics[0].tpm);
+          homeArray.push(data.response[1].statistics[0].tpa);
+          homeArray.push(data.response[1].statistics[0].steals);
+          homeArray.push(data.response[1].statistics[0].blocks);
+          homeArray.push(data.response[1].statistics[0].turnovers);
+          //homeArray.push(Number(data.response[1].statistics[0].plusMinus));
+
+          percents.push(Number(data.response[0].statistics[0].fgp));
+          percents.push(Number(data.response[1].statistics[0].fgp));
+          percents.push(Number(data.response[0].statistics[0].ftp));
+          percents.push(Number(data.response[1].statistics[0].ftp));
+          percents.push(Number(data.response[0].statistics[0].tpp));
+          percents.push(Number(data.response[1].statistics[0].tpp));
+          teamNames.push(data.response[0].team['name']);
+          teamNames.push(data.response[1].team['name']);
+          teamIds.push(data.response[0].team['id']);
+          teamIds.push(data.response[1].team['id']);
+
+          console.log(awayArray);
+          console.log(homeArray);
+          console.log(percents);
+          console.log(teamIds);
+
+          bidirectionalChart(awayArray, homeArray, labels);
+          //statCharts(percents[0], percents[1], percents[2], percents[3], percents[4], percents[5], teamNames[0], teamNames[1])
+          statCharts(percents[1], percents[0], percents[3], percents[2], percents[5], percents[4], 'chDonut1', 'chDonut2', 'chDonut3', [teamNames[1], teamNames[0]], [teamNames[1], teamNames[0]], [teamNames[1], teamNames[0]])
+
+          returned.push(teamIds);
+          returned.push(teamNames);
+
+          return returned;
+        })
+        .catch(error => {
+            console.log(error)
+        }); 
+    };
+    //getGamesStats()
+
+    (async() => {
+        const result = await getGamesStats(document.getElementById('id_game').content).then(data => {
+            return data;
+        });
+        console.log('xaxaxaxaxa')
+        console.log(result)
+        teamPlayers(result[0][0], 2021, document.getElementById('id_game').content, 'trapezi1')
+        teamPlayers(result[0][1], 2021, document.getElementById('id_game').content, 'trapezi2')
+        document.getElementById('awayTeam').innerHTML = 'Players Stats - ' + result[1][0];
+        document.getElementById('homeTeam').innerHTML = 'Players Stats - ' + result[1][1];
+    })();
+
+
+
+    // function statCharts(x1, x2, y1, y2, z1, z2, awayTeam, homeTeam){
+    //   // chart colors
+    //   var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+    //   /* 3 donut charts */
+    //   var donutOptions = {
+    //     cutoutPercentage: 85, 
+    //     legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
+    //   };
+
+    //   // donut 1
+    //   var chDonutData1 = {
+    //       labels: [awayTeam, homeTeam],
+    //       datasets: [
+    //         {
+    //           backgroundColor: colors.slice(0,3),
+    //           borderWidth: 0,
+    //           data: [x1, x2]
+    //         }
+    //       ],  
+    //   };
+
+    //   var chDonut1 = document.getElementById("chDonut1");
+    //   if (chDonut1) {
+    //     new Chart(chDonut1, {
+    //         type: 'pie',
+    //         data: chDonutData1,
+    //         options: donutOptions
+    //     });
+    //   }
+
+    //   var chDonutData2 = {
+    //       labels: [awayTeam, homeTeam],
+    //       datasets: [
+    //         {
+    //           backgroundColor: colors.slice(0,3),
+    //           borderWidth: 0,
+    //           data: [y1, y2]
+    //         }
+    //       ],
+          
+    //   };
+
+    //   var chDonut2 = document.getElementById("chDonut2");
+    //   if (chDonut2) {
+    //     new Chart(chDonut2, {
+    //         type: 'pie',
+    //         data: chDonutData2,
+    //         options: donutOptions
+    //     });
+    //   }
+
+    //   var chDonutData3 = {
+    //       labels: [awayTeam, homeTeam],
+    //       datasets: [
+    //         {
+    //           backgroundColor: colors.slice(0,3),
+    //           borderWidth: 0,
+    //           data: [z1, z2]
+    //         }
+    //       ],
+          
+    //   };
+
+    //   var chDonut3 = document.getElementById("chDonut3");
+    //   if (chDonut3) {
+    //     new Chart(chDonut3, {
+    //         type: 'pie',
+    //         data: chDonutData3,
+    //         options: donutOptions
+    //     });
+    //   }
+    // }
+
+
+
+
+    function statCharts(x1, x2, y1, y2, z1, z2, id1, id2, id3, title1, title2, title3){
+      // chart colors
+      var colors = ['blue', 'orange', '#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+      /* 3 donut charts */
+      var donutOptions1 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: x2 + '% - ' + x1 + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions2 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: y2 + '% - ' + y1 + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions3 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: z2 + '% - ' + z1 + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: title1,
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [x1, x2]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id1);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions1
+        });
+      }
+
+      var chDonutData2 = {
+          labels: title2,
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [y1, y2]
+            }
+          ],
+          
+      };
+
+      var chDonut2 = document.getElementById(id2);
+      if (chDonut2) {
+        new Chart(chDonut2, {
+            type: 'pie',
+            data: chDonutData2,
+            options: donutOptions2
+        });
+      }
+
+      var chDonutData3 = {
+          labels: title3,
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [z1, z2]
+            }
+          ],
+          
+      };
+
+      var chDonut3 = document.getElementById(id3);
+      if (chDonut3) {
+        new Chart(chDonut3, {
+            type: 'pie',
+            data: chDonutData3,
+            options: donutOptions3
+        });
+      }
+    }
+
+
+
+
+                
+    function teamPlayers(teamId, season, gameId, tableId) {
+      console.log(gameId)
+      console.log('https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + teamId + '&season=' + season)
+        const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+            'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+          }
+        };
+
+        return fetch('https://api-nba-v1.p.rapidapi.com/players/statistics?team=' + teamId + '&season=' + season, options)
+        //return fetch("/static/json/bucks_2020_players_stats.JSON")
+        .then(response => {
+            //console.log(response);
+            return response.json();
+        })
+        .then(data => {
+          table = document.getElementById(tableId);
+
+          const tableHead = table.querySelector('thead')
+          const tableBody = table.querySelector('tbody')
+
+          tableHead.innerHTML = "<tr></tr>";
+          tableBody.innerHTML = "";
+
+          // headers
+
+          const cellImage = document.createElement('th');
+          cellImage.textContent = '';
+          tableHead.querySelector('tr').appendChild(cellImage);
+
+          const cellName = document.createElement('th');
+          cellName.textContent = 'Full Name';
+          tableHead.querySelector('tr').appendChild(cellName);
+
+          const cellPoints = document.createElement('th');
+          cellPoints.textContent = 'Points';
+          tableHead.querySelector('tr').appendChild(cellPoints);
+
+          const cellAssists = document.createElement('th');
+          cellAssists.textContent = 'Assists';
+          tableHead.querySelector('tr').appendChild(cellAssists);
+
+          const cellTotalRebounds = document.createElement('th');
+          cellTotalRebounds.textContent = 'Rebounds';
+          tableHead.querySelector('tr').appendChild(cellTotalRebounds);
+
+          for(var row of data.response){
+            if(row.game['id'] == gameId){
+            //if(row.game['id'] == gameId){
+
+              const rowElement = document.createElement('tr');
+              
+              const cellImage = document.createElement('td');
+              try{
+                if(document.getElementById(row.player['id']).innerHTML == 'https://cdn.nba.com/headshots/nba/latest/1040x760/None.png'){
+                  cellImage.innerHTML = '<img src="https://www.kitshouse.org/wp-content/uploads/2019/09/no-image-1.jpg">';
+                  rowElement.appendChild(cellImage);
+                }
+                else{
+                  cellImage.innerHTML = '<img src=' + document.getElementById(row.player['id']).innerHTML + '>';
+                  rowElement.appendChild(cellImage);
+                }
+              }
+              catch (error) {
+                cellImage.innerHTML = '<img src="https://www.kitshouse.org/wp-content/uploads/2019/09/no-image-1.jpg">';
+                rowElement.appendChild(cellImage);
+              }
+
+              const cellName = document.createElement('td');
+              cellName.textContent = row.player['firstname'] + ' ' + row.player['lastname'];
+              rowElement.appendChild(cellName);
+
+              const cellPoints = document.createElement('td');
+              cellPoints.textContent = row.points;
+              rowElement.appendChild(cellPoints);
+
+              const cellAssists = document.createElement('td');
+              cellAssists.textContent = row.assists
+              rowElement.appendChild(cellAssists);
+
+              const cellTotalRebounds = document.createElement('td');
+              cellTotalRebounds.textContent = row.totReb;
+              rowElement.appendChild(cellTotalRebounds);
+
+              tableBody.appendChild(rowElement);
+
+              console.log(row);
+            }
+          }
+          document.getElementById('katina').style.display = 'none';
+          console.log(document.getElementById('20').innerHTML);
+          
+          
+
+        })
+        .catch(error => {
+            console.log(error)
+        }); 
+    };
+    //teamPlayers(21, 2020, document.getElementById('id_game').content, 'trapezi1')
+    
+      
+  </script>
+
+
+  {% endblock %}
+</body>
+
+</html>
+

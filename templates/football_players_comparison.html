@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta id="id_league" content="{{league_id}}">
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/flags/css/flag-icon.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/static/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/static/images/favicon.png" />
+
+  <!-- Loading Spinner -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/slick-loader@1.1.20/slick-loader.min.css">
+  <script src="https://unpkg.com/slick-loader@1.1.20/slick-loader.min.js"></script>
+
+  <style>
+    /*the container must be positioned relative:*/
+    .autocomplete {
+      position: relative;
+      display: inline-block;
+    }
+
+    input {
+      border: 1px solid transparent;
+      background-color: #f1f1f1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    input[type=text] {
+      background-color: #f1f1f1;
+      width: 100%;
+    }
+
+    input[type=submit] {
+      background-color: DodgerBlue;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .autocomplete-items {
+      position: absolute;
+      border: 1px solid #d4d4d4;
+      border-bottom: none;
+      border-top: none;
+      z-index: 99;
+      /*position the autocomplete items to be the same width as the container:*/
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
+
+    .autocomplete-items div {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff; 
+      border-bottom: 1px solid #d4d4d4; 
+    }
+
+    /*when hovering an item:*/
+    .autocomplete-items div:hover {
+      background-color: #e9e9e9; 
+    }
+
+    /*when navigating through the items using the arrow keys:*/
+    .autocomplete-active {
+      background-color: DodgerBlue !important; 
+      color: #ffffff; 
+    }
+
+
+</style>
+
+</head>
+<body>
+  {% block content %}
+  <div class="container-scroller">
+    <div class="row p-0 m-0 proBanner" id="proBanner">
+      <div class="col-md-12 p-0 m-0">
+        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="ps-lg-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <button id="bannerClose" class="btn border-0 p-0">
+              <i class="mdi mdi-close text-white me-0"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">UI Elements</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Form elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Icons</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">help</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link ps-0" href="{{ url_for('league_stats', league_id = league_id) }}" aria-selected="false">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('league_teams', league_id = league_id) }}" aria-selected="false">Clubs</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('league_fixtures', league_id = league_id) }}" aria-selected="false">Fixtures</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('league_results', league_id = league_id) }}" aria-selected="false">Results</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('league_tables', league_id = league_id) }}" aria-selected="false">Tables</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{{ url_for('league_players_comparison', league_id = league_id) }}" aria-selected="true">Compare</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link border-0" href="{{ url_for('league_live', league_id = league_id) }}" aria-selected="false">Live Games</a>
+                    </li>
+                  </ul>
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Players Comparison</h4>
+                        <p class="card-description">
+                          Select two players of the league and compare their statlines.
+                        </p>
+                        <form autocomplete="off" action="/action_page.php">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="form-group col-md-6">
+                                <div class="autocomplete" style="width:100%;">
+                                  <label for="myInput1">Player 1 Team</label>
+                                  <input type="text" class="form-control" id="myInput1" aria-describedby="inTeam" placeholder="Team">
+                                </div>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <div class="autocomplete" style="width:100%;">
+                                  <label for="myInput2">Player 2 Team</label>
+                                  <input type="text" class="form-control" id="myInput2" aria-describedby="inTeam" placeholder="Team">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-md-6">
+                                <div class="autocomplete" style="width:100%;">
+                                  <label for="myInput3">Player 1 Full Name</label>
+                                  <input type="text" class="form-control" id="myInput3" aria-describedby="inPlayer" placeholder="Player">
+                                </div>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <div class="autocomplete" style="width:100%;">
+                                  <label for="myInput4">Player 2 Full Name</label>
+                                  <input type="text" class="form-control" id="myInput4" aria-describedby="inPlayer" placeholder="Player">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-md-6">
+                                <label for="inputState1" style="text-align: center;">Season</label>
+                                <select id="inputState1" class="form-control">
+                                  <option value="" disabled selected>Select Season</option>
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option value="2021">2021-22</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputState2" style="text-align: center;">Season</label>
+                                <select id="inputState2" class="form-control">
+                                  <option value="" disabled selected>Select Season</option>
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option value="2021">2021-22</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <button type="button" class="btn btn-primary" 
+                                onclick="
+
+                                var name1 = document.getElementById('myInput3').value;
+                                var sp1 = name1.split(' ');
+                                var id1 = sp1[sp1.length - 1].slice(1, sp1[sp1.length - 1].length - 1)
+                                //console.log(name1)
+
+                                var name2 = document.getElementById('myInput4').value;
+                                var sp2 = name2.split(' ');
+                                var id2 = sp2[sp2.length - 1].slice(1, sp2[sp2.length - 1].length - 1)
+
+                                console.log(id1)
+                                console.log(id2)
+
+                                SlickLoader.enable();
+
+                                setTimeout(function(){
+                                  playersStats(id1, 2021, id2, 2021);
+                                  for(i = 11; i < 34; i += 11){
+                                    if(document.getElementById(i).style){
+                                      document.getElementById(i).removeAttribute('style');
+                                    }
+                                  }
+                                  SlickLoader.disable();
+                                  
+                                }, 1500);
+                                " 
+                                type="button" class="btn btn-primary mb-2">>
+                              Compare Players</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" id="11" style="display: none;">
+                  <div class="col-lg-3 grid-margin stretch-card">
+                    <div class="card">
+                      <br>
+                      <img id="headshot1" style="width: 80%; height: auto; margin-left: auto; margin-right: auto;" class="card-img-top" src="" alt="Player face">
+                      <div class="card-body">
+                        <div>
+                          <h5 id="name1" class="card-title" style="text-align: center;"></h5>
+                        </div>
+                        <div>
+                          <table class="table mb-0">
+                            <tbody>
+                              <tr>
+                                <td>Nationality</td>
+                                <td id="nat1"></td>
+                              </tr>
+                              <tr>
+                                <td>Age</td>
+                                <td id="age1"></td>
+                              </tr>
+                              <tr>
+                                <td>Height</td>
+                                <td id="h1"></td>
+                              </tr>
+                              <tr>
+                                <td>Weight</td>
+                                <td id="w1"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <canvas id="chart1" height="230"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 grid-margin stretch-card">
+                    <div class="card">
+                      <br>
+                      <img id="headshot2" style="width: 80%; height: auto; margin-left: auto; margin-right: auto;" class="card-img-top" src="" alt="Player face">
+                      <div class="card-body">
+                        <div>
+                          <h5 id="name2"  class="card-title" style="text-align: center;"></h5>
+                        </div>
+                        <div>
+                          <table class="table mb-0">
+                            <tbody>
+                              <tr>
+                                <td>Nationality</td>
+                                <td id="nat2"></td>
+                              </tr>
+                              <tr>
+                                <td>Age</td>
+                                <td id="age2"></td>
+                              </tr>
+                              <tr>
+                                <td>Height</td>
+                                <td id="h2"></td>
+                              </tr>
+                              <tr>
+                                <td>Weight</td>
+                                <td id="w2"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content tab-content-basic" id="22" style="display: none;">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                    <div class="row flex-grow">
+                      <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title" id="homeTeam">Players Stats</h4>
+                            <p class="card-description">
+                              Below, you can see in detail and compare the statlines of <strong id="name11"></strong> and <strong id="name22"></strong>.
+                            </p><br>
+                            <div class="row">
+                              <div class="col-4">
+                                <h5 id="Name1" class="card-title" style="text-align: right;"></h5>
+                              </div>
+                              <div class="col-4">
+                                <h5 class="card-title" style="text-align: center;"></h5>
+                              </div>
+                              <div class="col-4">
+                                <h5 id="Name2" class="card-title" style="text-align: left;"></h5>
+                              </div>
+                            </div>
+                            <div class="table-responsive">
+                              <table class="table table-borderless">
+                                <tbody>
+                                  <tr id="goals">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="40"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Goals</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="40"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="appear">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="60"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Appearences</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="60"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="min">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="90"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Average Minutes</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="90"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="shotsTarget">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Shots on Target</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="assists">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="40"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Assists</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="40"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="dribbles">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="300"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Dribbles</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="300"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="fouls">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="300"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Fouls Drawn</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="300"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="tackles">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="150"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Tackles</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="150"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="yelCards">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="15"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Yellow Cards</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="15"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                  <tr id="redCards">
+                                    <td style="width: 10%"></td>
+                                    <td style="width: 35%">
+                                      <div class="progress justify-content-end" style="height: 18px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="10"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%; text-align: center;">Red Cards</td>
+                                    <td style="width: 35%">
+                                      <div class="progress" style="height: 18px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="10"></div>
+                                      </div>
+                                    </td>
+                                    <td style="width: 10%"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div id="33" class="row flex-grow"  style="display: none;">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-2 grid-margin stretch-card">
+                          <canvas id="chDonut1" height="300"></canvas>
+                        </div>
+                        <div class="col-2 grid-margin stretch-card">
+                          <canvas id="chDonut2" height="300"></canvas>
+                        </div>
+                        <div class="col-2 grid-margin stretch-card">
+                          <canvas id="chDonut3" height="300"></canvas>
+                        </div>
+                        <div class="col-2 grid-margin stretch-card">
+                          <canvas id="chDonut4" height="300"></canvas>
+                        </div>
+                        <div class="col-2 grid-margin stretch-card">
+                          <canvas id="chDonut5" height="300"></canvas>
+                        </div>
+                        <div class="col-2 grid-margin stretch-card">
+                          <canvas id="chDonut6" height="300"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div  id="33" style="display: none;" class="row row-flex">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h4 id="pl1Per" class="card-title"></h4>
+                        <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          </div>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <canvas id="chDonut1"></canvas>
+                            </div>
+                            <div class="carousel-item">
+                              <canvas id="chDonut3"></canvas>
+                            </div>
+                            <div class="carousel-item">
+                              <canvas id="chDonut5"></canvas>
+                            </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h4 id="pl2Per" class="card-title"></h4>
+                        <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          </div>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <canvas id="chDonut2"></canvas>
+                            </div>
+                            <div class="carousel-item">
+                              <canvas id="chDonut4"></canvas>
+                            </div>
+                            <div class="carousel-item">
+                              <canvas id="chDonut6"></canvas>
+                            </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/static/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+
+  <script src="/static/js/off-canvas.js"></script>
+  <script src="/static/js/hoverable-collapse.js"></script>
+  <script src="/static/js/template.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/todolist.js"></script>
+  <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/Chart.roundedBarCharts.js"></script>
+  <script src="/static/js/centeredDonutText.js"></script>
+  <script>
+    function autocomplete(inp, arr) {
+      /*the autocomplete function takes two arguments,
+      the text field element and an array of possible autocompleted values:*/
+      var currentFocus;
+      /*execute a function when someone writes in the text field:*/
+      inp.addEventListener("input", function(e) {
+          var a, b, i, val = this.value;
+          /*close any already open lists of autocompleted values*/
+          closeAllLists();
+          if (!val) { return false;}
+          currentFocus = -1;
+          /*create a DIV element that will contain the items (values):*/
+          a = document.createElement("DIV");
+          a.setAttribute("id", this.id + "autocomplete-list");
+          a.setAttribute("class", "autocomplete-items");
+          /*append the DIV element as a child of the autocomplete container:*/
+          this.parentNode.appendChild(a);
+          /*for each item in the array...*/
+          for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              /*create a DIV element for each matching element:*/
+              b = document.createElement("DIV");
+              /*make the matching letters bold:*/
+              b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+              b.innerHTML += arr[i].substr(val.length);
+              /*insert a input field that will hold the current array item's value:*/
+              b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+                  /*insert the value for the autocomplete text field:*/
+                  inp.value = this.getElementsByTagName("input")[0].value;
+                  /*close the list of autocompleted values,
+                  (or any other open lists of autocompleted values:*/
+                  closeAllLists();
+              });
+              a.appendChild(b);
+            }
+          }
+      });
+      /*execute a function presses a key on the keyboard:*/
+      inp.addEventListener("keydown", function(e) {
+          var x = document.getElementById(this.id + "autocomplete-list");
+          if (x) x = x.getElementsByTagName("div");
+          if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+              /*and simulate a click on the "active" item:*/
+              if (x) x[currentFocus].click();
+            }
+          }
+      });
+      function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+      function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+      function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
+        }
+      }
+      /*execute a function when someone clicks in the document:*/
+      document.addEventListener("click", function (e) {
+          closeAllLists(e.target);
+      });
+    }
+
+
+  function radarChart(data1, label1, data2, label2){
+    var ctxR = document.getElementById("chart1").getContext('2d');
+    var myRadarChart = new Chart(ctxR, {
+      type: 'radar',
+      data: {
+        labels: ["Shots", "Dribbles", "Goals", "Tackles", "Assists"],
+        datasets: [{
+          label: label1,
+          data: data1,
+          backgroundColor: [
+            'rgba(255, 165, 0, .2)',
+          ],
+          borderColor: [
+            'rgba(255, 69, 0, .7)',
+          ],
+          borderWidth: 2
+        },
+        {
+          label: label2,
+          data: data2,
+          backgroundColor: [
+            'rgba(45, 85, 255, .2)',
+          ],
+          borderColor: [
+            'rgba(1, 1, 122, .7)',
+          ],
+          borderWidth: 2
+        }
+        ]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  }
+
+  
+
+  // function statCharts(i, x1, y1, z1, c1){
+  //   // chart colors
+  //   var colors = [c1, '#fafafa'];
+
+  //   /* 3 donut charts */
+  //   var donutOptions = {
+  //     cutoutPercentage: 85, 
+  //     legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
+  //   };
+
+  //   // donut 1
+  //   var chDonutData1 = {
+  //       labels: ['Bootstrap'],
+  //       datasets: [
+  //         {
+  //           backgroundColor: colors.slice(0,3),
+  //           borderWidth: 0,
+  //           data: [x1, 100-x1]
+  //         }
+  //       ],
+        
+  //   };
+
+  //   var chDonut1 = document.getElementById("chDonut" + i);
+  //   if (chDonut1) {
+  //     new Chart(chDonut1, {
+  //         type: 'pie',
+  //         data: chDonutData1,
+  //         options: donutOptions
+  //     });
+  //   }
+
+  //   var chDonutData2 = {
+  //       labels: ['Bootstrap'],
+  //       datasets: [
+  //         {
+  //           backgroundColor: colors.slice(0,3),
+  //           borderWidth: 0,
+  //           data: [y1, 100-y1]
+  //         }
+  //       ],
+        
+  //   };
+
+  //   var chDonut2 = document.getElementById("chDonut" + (i + 1));
+  //   if (chDonut2) {
+  //     new Chart(chDonut2, {
+  //         type: 'pie',
+  //         data: chDonutData2,
+  //         options: donutOptions
+  //     });
+  //   }
+
+  //   var chDonutData3 = {
+  //       labels: ['Bootstrap'],
+  //       datasets: [
+  //         {
+  //           backgroundColor: colors.slice(0,3),
+  //           borderWidth: 0,
+  //           data: [z1, 100-z1]
+  //         }
+  //       ],
+        
+  //   };
+
+  //   var chDonut3 = document.getElementById("chDonut" + (i + 2));
+  //   if (chDonut3) {
+  //     new Chart(chDonut3, {
+  //         type: 'pie',
+  //         data: chDonutData3,
+  //         options: donutOptions
+  //     });
+  //   }
+  // }
+
+  function statCharts(color, x, y, z, id1, id2, id3, title1, title2, title3){
+      // chart colors
+      var colors = [color, '#f9f9f9', '#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+      /* 3 donut charts */
+      var donutOptions1 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: x + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions2 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: y + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions3 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: z + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: [title1],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [x, 100-x]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id1);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions1
+        });
+      }
+
+      var chDonutData2 = {
+          labels: [title2],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [y, 100-y]
+            }
+          ],
+          
+      };
+
+      var chDonut2 = document.getElementById(id2);
+      if (chDonut2) {
+        new Chart(chDonut2, {
+            type: 'pie',
+            data: chDonutData2,
+            options: donutOptions2
+        });
+      }
+
+      var chDonutData3 = {
+          labels: [title3],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [z, 100-z]
+            }
+          ],
+          
+      };
+
+      var chDonut3 = document.getElementById(id3);
+      if (chDonut3) {
+        new Chart(chDonut3, {
+            type: 'pie',
+            data: chDonutData3,
+            options: donutOptions3
+        });
+      }
+    }
+
+
+
+  function getTeams(league_id) {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+            'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed'
+        }
+    };
+    return fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2021&league=' + league_id, options)
+    .then(response => response.json())
+    .then(data => {
+      var teams = [];
+      var ids = [];
+      var final = [];
+      for(var row of data.response[0].league.standings[0]){
+        //console.log(row);
+        teams.push(row.team['name']);
+        ids.push(row.team['id']);
+      }
+      autocomplete(document.getElementById("myInput1"), teams);
+      autocomplete(document.getElementById("myInput2"), teams);
+
+      final.push(teams);
+      final.push(ids);
+
+      return final;
+    })
+    .catch(err => console.error(err));
+  };
+
+
+
+
+  function getTeamPlayers(parent, teamId, i, lista) {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+      }
+    };
+
+    return fetch(`https://api-football-v1.p.rapidapi.com/v3/players?team=${teamId}&season=2021&page=${i}`, options)
+    //return fetch("/static/json/page" + i + ".JSON")
+    .then(response => {
+        console.log(response);
+        if(!response.ok){
+            throw Error('error')
+        }
+        return response.json();
+    })
+    .then(data => {
+      //console.log('xxaaxa', data.response);
+      for(var row of data.response){
+        //console.log(row.player.name)
+        //console.log(row.player.id)
+        console.log(row)
+        lista.push(row.player.firstname + ' ' + row.player.lastname + ' (' + row.player.id + ')');
+      }
+
+      var pages = data.paging['total']
+      var current = data.paging['current']
+      if (current < pages){
+        return getTeamPlayers(parent, teamId, current + 1, lista);
+      }
+      else{
+        if(parent == 'myInput1'){
+          autocomplete(document.getElementById("myInput3"), lista);
+        }
+        else{
+          autocomplete(document.getElementById("myInput4"), lista);
+        }
+
+        console.log('STAMATAAAAAAA');
+
+        console.log(lista);
+
+        var final = [];
+        final.push(lista);
+
+        return final;
+      }
+      
+    })
+    .catch(error => {
+        console.log(error)
+    }); 
+  };
+
+
+
+
+
+
+
+
+  // function getTeamId(string, season, league) {
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+  //       'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+  //     }
+  //   };
+
+  //   return fetch(`https://api-football-v1.p.rapidapi.com/v3/players?league=${league}&season=${season}&search=${string}`, options)
+  //   .then(response => {
+  //       console.log(response);
+  //       if(!response.ok){
+  //           throw Error('error')
+  //       }
+  //       return response.json();
+  //   })
+  //   .then(data => {
+  //     return data.response[0].player.id;
+  //   })
+  //   .catch(err => console.error(err));
+  // };
+
+
+
+
+
+
+
+
+
+
+  function playersStats(playerId1, season1, playerId2, season2) {
+    let urls = [];
+    
+    urls.push(`https://api-football-v1.p.rapidapi.com/v3/players?id=${playerId1}&season=${season1}`);
+    
+    urls.push(`https://api-football-v1.p.rapidapi.com/v3/players?id=${playerId2}&season=${season2}`);
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+            'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed'
+        }
+    };
+
+
+    Promise.all(
+      urls.map(url =>
+        fetch(url, options)
+          .then(response => response.json())
+          .catch(err => console.error(err))
+      )
+    ).then(data => { 
+      var pl = 0;
+      var k = 0;
+      var l = 1;
+      var j = 1; 
+      var color = 'blue';
+      var player1 = [];
+      var player2 = [];
+      for(var paiktis of data){
+        var path = paiktis.response[0].player
+
+        document.getElementById('name' + (pl + 1)).innerHTML = path.name;
+        document.getElementById('name' + (pl + 1) + (pl + 1)).innerHTML = path.name;
+        document.getElementById('Name' + (pl + 1)).innerHTML = path.name;
+        document.getElementById('pl' + (pl + 1) + 'Per').innerHTML = path.name + ' - Percentages';
+
+        document.getElementById('age' + (pl + 1)).innerHTML = path.age;
+        document.getElementById('h' + (pl + 1)).innerHTML = path.height;
+        document.getElementById('w' + (pl + 1)).innerHTML = path.weight;
+        document.getElementById('headshot' + (pl + 1)).src = path.photo;
+        document.getElementById('nat' + (pl + 1)).innerHTML = '';
+
+        var c1 = 1;
+        var c2 = 1;
+        var c3 = 1;
+
+        const stats = {goals:0, apps:0, mins:0, duels:0, shots:0, shotsPer:0, assists:0, dribbles:0, dribblesPer:0, fouls:0, tackles:0, yel:0, red:0};
+
+        for(var row of paiktis.response[0].statistics){
+          console.log(row)
+          stats['goals'] += row.goals['total'];
+          stats['apps'] += row.games['appearences'];
+          stats['mins'] += row.games['minutes'];
+          stats['shots'] += row.shots['on'];
+
+          if(row.shots['on'] != null){
+            stats['shotsPer'] += Number(((row.shots['on'] / row.shots['total'])*100).toFixed(1));
+            c1++;
+          }   
+             
+          stats['assists'] += row.goals['assists'];
+          stats['dribbles'] += row.dribbles['success'];
+
+          if(row.dribbles['success'] != null){
+            stats['dribblesPer'] += Number(((row.dribbles['success'] / row.dribbles['attempts'])*100).toFixed(1));
+            c2++;
+          }  
+
+          if(row.duels['won'] != null){
+            stats['duels'] += Number(((row.duels['won'] / row.duels['total'])*100).toFixed(1));
+            c3++;
+          }  
+
+          stats['fouls'] += row.fouls['drawn'];
+          stats['tackles'] += row.tackles['total'];
+          stats['yel'] += row.cards['yellow'];
+          stats['red'] += row.cards['red'];
+
+        }
+        document.getElementById('shotsTarget').children[k].innerHTML = stats['shots'];
+        document.getElementById('shotsTarget').children[j].children[0].children[0].style.width = (stats['shots'] / 100).toFixed(1) * 100 + '%';
+        document.getElementById('fouls').children[k].innerHTML = stats['fouls'];
+        document.getElementById('fouls').children[j].children[0].children[0].style.width = (stats['fouls'] / 300).toFixed(1) * 100 + '%';
+        document.getElementById('yelCards').children[k].innerHTML = stats['yel'];
+        document.getElementById('yelCards').children[j].children[0].children[0].style.width = (stats['yel'] / 15).toFixed(1) * 100 + '%';
+        document.getElementById('redCards').children[k].innerHTML = stats['red'];
+        document.getElementById('redCards').children[j].children[0].children[0].style.width = (stats['red'] / 10).toFixed(1) * 100 + '%';
+        document.getElementById('min').children[k].innerHTML = stats['mins'];
+        document.getElementById('min').children[j].children[0].children[0].style.width = (stats['mins'] / 10).toFixed(1) * 100 + '%';
+        document.getElementById('dribbles').children[k].innerHTML = stats['dribbles'];
+        document.getElementById('dribbles').children[j].children[0].children[0].style.width = (stats['dribbles'] / 300).toFixed(1) * 100 + '%';
+        document.getElementById('tackles').children[k].innerHTML = stats['tackles']
+        document.getElementById('tackles').children[j].children[0].children[0].style.width = (stats['tackles'] / 150).toFixed(1) * 100 + '%';
+        document.getElementById('assists').children[k].innerHTML = stats['assists'];
+        document.getElementById('assists').children[j].children[0].children[0].style.width = (stats['assists'] / 40).toFixed(1) * 100 + '%';
+        document.getElementById('appear').children[k].innerHTML = stats['apps'];
+        document.getElementById('appear').children[j].children[0].children[0].style.width = (stats['apps'] / 60).toFixed(1) * 100 + '%';
+        document.getElementById('goals').children[k].innerHTML = stats['goals'];
+        document.getElementById('goals').children[j].children[0].children[0].style.width = (stats['goals'] / 40).toFixed(1) * 100 + '%';
+        console.log('aaaaaaa', (stats['shotsPer'] / c1).toFixed(1), (stats['duels'] / c2).toFixed(1), (stats['dribblesPer'] / c3).toFixed(1))
+        
+        //statCharts(l, (stats['shotsPer'] / c1).toFixed(1), (stats['duels'] / c2).toFixed(1), (stats['dribblesPer'] / c3).toFixed(1), color);
+        statCharts(color, (stats['shotsPer'] / c1).toFixed(1), (stats['duels'] / c2).toFixed(1), (stats['dribblesPer'] / c3).toFixed(1), 'chDonut' + l, 'chDonut' + (l + 2), 'chDonut' + (l + 4), 'Shots on Target Percentage %', 'Duels Percentage %', 'Successful Dribbles %');
+        
+        if(pl == 0){
+          player1.push(stats['shots']);
+          player1.push(stats['dribbles']);
+          player1.push(stats['goals']);
+          player1.push(stats['tackles']);
+          player1.push(stats['assists']);  
+        }
+        else{
+          player2.push(stats['shots']);
+          player2.push(stats['dribbles']);
+          player2.push(stats['goals']);
+          player2.push(stats['tackles']);
+          player2.push(stats['assists']);
+        }
+        
+        k += 4;
+        j += 2;
+        l += 1;
+        pl++;
+
+        color = 'orange'
+      }
+
+      radarChart(player1, 'enas', player2, 'kai enas 2');
+      
+    });
+  }
+
+  
+  
+  
+
+  // $('#myInput1').keyup(function() {
+  //   if (this.value === "") {
+  //     $('#myInput3').prop('disabled', true);
+  //   }
+  //   else {
+  //     $('#myInput3').removeAttr('disabled');
+  //     console.log('AAAA', this.value);
+  //     (async() => {
+  //       console.log('BBB', this.value);
+  //       var ides = await getTeams(document.getElementById('id_league').content).then(data => {
+  //           return data;
+  //       });
+  //       console.log(ides[1])
+
+  //       for(i = 0; i < ides[0].length; i++){
+  //         if(this.value === ides[0][i]){
+  //           getTeamPlayers('myInput1', ides[1][i], 0, []);
+  //         }
+  //       }
+  //     })();
+  //   }
+  // });
+
+
+  // $('#myInput2').keyup(function() {
+  //   if (this.value === "") {
+  //     $('#myInput4').prop('disabled', true);
+  //   }
+  //   else {
+  //     $('#myInput4').removeAttr('disabled');
+  //     console.log('AAAA', this.value);
+  //     (async() => {
+  //       console.log('BBB', this.value);
+  //       var ides = await getTeams(document.getElementById('id_league').content).then(data => {
+  //           return data;
+  //       });
+  //       console.log(ides[1])
+
+  //       for(i = 0; i < ides[0].length; i++){
+  //         if(this.value === ides[0][i]){
+  //           getTeamPlayers('myInput2', ides[1][i], 0, []);
+  //         }
+  //       }
+  //     })();
+  //   }
+  // });
+
+
+</script>
+
+
+{% endblock %}
+</body>
+
+</html>
+

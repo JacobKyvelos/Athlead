@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta id="id_team" content="{{ teamId }}">
+  <title>Star Admin2 </title>
+
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/flags/css/flag-icon.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/static/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/static/images/favicon.png" />
+</head>
+<body>
+  {% block content %}
+  <div class="container-scroller">
+    <div class="row p-0 m-0 proBanner" id="proBanner">
+      <div class="col-md-12 p-0 m-0">
+        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="ps-lg-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <button id="bannerClose" class="btn border-0 p-0">
+              <i class="mdi mdi-close text-white me-0"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">UI Elements</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Form elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Icons</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">help</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link ps-0 active" href="{{ url_for('team_stats', team_id = teamId) }}" aria-selected="false">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('team_players', team_id = teamId) }}" aria-selected="false">Squad</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('team_fixtures', team_id = teamId) }}" aria-selected="false">Fixtures</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('team_results', team_id = teamId) }}" aria-selected="false">Results</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('basket_player_comp', team_id = teamId) }}" aria-selected="false">Compare Players</a>
+                    </li>
+                  </ul>
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br><br><br>
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-sm-flex justify-content-between align-items-start">
+                      <div>
+                        <h4 class="card-title card-title-dash">Team Stats</h4>
+                        <p class="card-subtitle card-subtitle-dash">Below you can see the whole statline of the team.</p>
+                      </div>
+                    </div>
+                    <form autocomplete="off" action="/action_page.php">
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="form-group col-md-4">
+                            <label for="inputState3" style="text-align: center;">Season</label>
+                            <select id="inputState3" class="form-control" 
+                              onchange="console.log(value);addStatsToTable(document.getElementById('id_team').content, value);">
+                              <option value="" disabled selected>Select Season</option>
+                              <option value="2015">2015-16</option>
+                              <option value="2016">2016-17</option>
+                              <option value="2017">2017-18</option>
+                              <option value="2018">2018-19</option>
+                              <option value="2019">2019-20</option>
+                              <option value="2020">2020-21</option>
+                              <option selected value="2021">2021-22</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </form>      
+                    <div class="table-responsive pt-3">
+                      <table class="table table-bordered" id="trapezi" style="text-align: center;">
+                        <thead></thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="row flex-grow">
+              <div class="col-4 grid-margin stretch-card">
+                <div class="card card-rounded">
+                  <div class="card-body">
+                    <canvas id="chDonut1" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 grid-margin stretch-card">
+                <div class="card card-rounded">
+                  <div class="card-body">
+                    <canvas id="chDonut2" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 grid-margin stretch-card">
+                <div class="card card-rounded">
+                  <div class="card-body">
+                    <canvas id="chDonut3" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col-lg-4 col-md-12 col-sm-12 grid-margin stretch-card">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <canvas id="chDonut1"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 grid-margin stretch-card">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <canvas id="chDonut2"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 grid-margin stretch-card">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <canvas id="chDonut3"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-8 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Points per game Line chart</h4>
+                        <canvas id="linePoints"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <form autocomplete="off" action="/action_page.php">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="form-group col-md-6">
+                                <label for="inputState1" style="text-align: center;">Team</label>
+                                <select id="inputState1" class="form-control" data-live-search="true"
+                                  onchange="
+                                      var b = value; 
+                                      var e2 = document.getElementById('inputState2'); 
+                                      var c = e2.options[e2.selectedIndex].value;
+                                      var a = document.getElementById('id_team').content;
+                                      console.log(b);
+                                      console.log(c);
+                                      headToHead(a, b, c);
+                                  ">
+                                  <option value="" disabled selected>Select Team</option>
+                                  {% for x in dict %}
+                                  <option value={{ x }}>{{ dict[x] }}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputState2" style="text-align: center;">Season</label>
+                                <select id="inputState2" class="form-control" 
+                                  onchange="
+                                      var e1 = document.getElementById('inputState1'); 
+                                      var b = e1.options[e1.selectedIndex].value; 
+                                      var c = value;
+                                      var a = document.getElementById('id_team').content;
+                                      console.log(b);
+                                      console.log(c);
+                                      headToHead(a, b, c);
+                                  ">
+                                  <option value="" disabled selected>Select Season</option>
+                                  <option value="2015">2015-16</option>
+                                  <option value="2016">2016-17</option>
+                                  <option value="2017">2017-18</option>
+                                  <option value="2018">2018-19</option>
+                                  <option value="2019">2019-20</option>
+                                  <option value="2020">2020-21</option>
+                                  <option selected value="2021">2021-22</option>
+                                  <option >All seasons</option>
+                                </select>
+                              </div>
+                              <!-- <div class="col-auto">
+                                <button onclick="var e1 = document.getElementById('inputState1'); 
+                                                 var b = e1.options[e1.selectedIndex].value; 
+                                                 var e2 = document.getElementById('inputState2'); 
+                                                 var c = e2.options[e2.selectedIndex].value;
+                                                 var a = document.getElementById('id_team').content;
+                                                 console.log(b);
+                                                 console.log(c);
+                                                 headToHead(a, b, c);" 
+                                  type="button" class="btn btn-primary mb-2">Submit</button>
+                              </div> -->
+                            </div>
+                          </form>
+                        </div>
+                        <div class="row">
+                          <div class="grid-margin"> 
+                            <h2 id="header" style="text-align: center;"></h2>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="d-flex justify-content-center"> 
+                            <img id="logo" src="" style="height: 120px; width: auto;">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="table-responsive">
+                            <table class="table table-borderless " style="vertical-align: middle;">
+                              <tbody>
+                                <tr>
+                                  <th>Average Points Scored</th>
+                                  <td id="avPointsSc" style="text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                  <th>Average Points Received</th>
+                                  <td id="avPointsRe" style="text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                  <th>Record (W-L)</th>
+                                  <td id="record" style="text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                  <th>Largest Win By Points</th>
+                                  <td id="largWin" style="text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                  <th>Largest Defeat By Points</th>
+                                  <td id="largDef" style="text-align: center;"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 style="margin-bottom: 2%; margin-top: 2%; margin-left: 0.5%;" class="card-title fw-bold">Latest News</h2>
+          <div id="articles" class="row">
+            <div id="article" class="col-xl-3 col-lg-3 col-md-4 col-sm-6 grid-margin stretch-card">
+              <div class="card" style="width: 18rem; height: 15rem;">
+                <div class="card-body">
+                  <div class="container">
+                    <figure class="figure">
+                      <img id="sourceImage" style="height: 150px; width: auto;" src="" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                      <figcaption style="text-size-adjust: auto; font-weight: bold; height: 50px; width: auto;" id="caption" class="figure-caption"></figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-sm-flex justify-content-between align-items-start">
+                      <div>
+                        <h4 class="card-title card-title-dash">Market Overview</h4>
+                        <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <form>
+                        <div class="form-row d-flex justify-content-between">
+                          <div class="form-group col-md-3">
+                            <label for="inputState1" style="text-align: center;">Team</label>
+                            <select id="inputState1" class="form-control" data-live-search="true">
+                              <option value="" disabled selected>Select Team</option>
+                              {% for x in dict %}
+                              <option data-thumbnail="https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png" value={{ x }}>{{ dict[x] }}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="inputState2" style="text-align: center;">Season</label>
+                            <select id="inputState2" class="form-control">
+                              <option value="" disabled selected>Select Season</option>
+                              <option value="2015">2015-16</option>
+                              <option value="2016">2016-17</option>
+                              <option value="2017">2017-18</option>
+                              <option value="2018">2018-19</option>
+                              <option value="2019">2019-20</option>
+                              <option value="2020">2020-21</option>
+                              <option value="2021">2021-22</option>
+                            </select>
+                          </div>
+                          <div class="col-auto">
+                            <button>Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>                    
+                    <div class="table-responsive pt-3">
+                      <table class="table table-bordered" id="trapezi2">
+                        <thead>
+                          <tr>
+                            <th scope="col">GP</th>
+                            <th scope="col">PPG</th>
+                            <th scope="col">APG</th>
+                            <th scope="col">TOTREB</th>
+                            <th scope="col">DREB</th>
+                            <th scope="col">OREB</th>
+                            <th scope="col">FGM</th>
+                            <th scope="col">FGA</th>
+                            <th scope="col">FGP%</th>
+                            <th scope="col">FTM</th>
+                            <th scope="col">FTA</th>
+                            <th scope="col">FTP%</th>
+                            <th scope="col">TPM</th>
+                            <th scope="col">TPA</th>
+                            <th scope="col">TPP%</th>
+                            <th scope="col">ST</th>
+                            <th scope="col">BL</th>
+                            <th scope="col">TO</th>
+                            <th scope="col">+/-</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td id="gp"></td>
+                            <td id="ppg"></td>
+                            <td id="apg"></td>
+                            <td id="totreb"></td>
+                            <td id="dreb"></td>
+                            <td id="oreb"></td>
+                            <td id="fgm"></td>
+                            <td id="fga"></td>
+                            <td id="fgp"></td>
+                            <td id="ftm"></td>
+                            <td id="fta"></td>
+                            <td id="ftp"></td>
+                            <td id="tpm"></td>
+                            <td id="tpa"></td>
+                            <td id="tpp"></td>
+                            <td id="st"></td>
+                            <td id="bl"></td>
+                            <td id="to"></td>
+                            <td id="plus_"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/static/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/static/js/off-canvas.js"></script>
+  <script src="/static/js/hoverable-collapse.js"></script>
+  <script src="/static/js/template.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/Chart.roundedBarCharts.js"></script>
+  <script src="/static/js/lineChartPlayerPage.js"></script>
+  
+  <!-- End custom js for this page-->
+
+  <!-- PAGE STATS -->
+  <script>
+    function addStatsToTable(teamId, season) {
+        const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+            'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+          }
+        };
+        
+        return fetch('https://api-nba-v1.p.rapidapi.com/teams/statistics?id=' + teamId + '&season=' + season, options)
+
+        .then(response => {
+            if(!response.ok){
+                throw Error('error')
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            table = document.getElementById("trapezi");
+
+            const tableHead = table.querySelector('thead')
+            const tableBody = table.querySelector('tbody')
+
+            tableHead.innerHTML = "<tr></tr>";
+            tableBody.innerHTML = "";
+
+            // headers
+
+            console.log('mphka')
+
+            const cellGamesPlayed = document.createElement('th');
+            cellGamesPlayed.textContent = 'GP';
+            tableHead.querySelector('tr').appendChild(cellGamesPlayed);
+
+            const cellPointsPerGame = document.createElement('th');
+            cellPointsPerGame.textContent = 'PPG';
+            tableHead.querySelector('tr').appendChild(cellPointsPerGame);
+
+            const cellAssistsPerGame = document.createElement('th');
+            cellAssistsPerGame.textContent = 'APG';
+            tableHead.querySelector('tr').appendChild(cellAssistsPerGame);
+
+            const cellTotalRebounds = document.createElement('th');
+            cellTotalRebounds.textContent = 'TOTREB';
+            tableHead.querySelector('tr').appendChild(cellTotalRebounds);
+
+            const cellDefensiveRebounds = document.createElement('th');
+            cellDefensiveRebounds.textContent = 'DREB';
+            tableHead.querySelector('tr').appendChild(cellDefensiveRebounds);
+
+            const cellOffensiveRebounds = document.createElement('th');
+            cellOffensiveRebounds.textContent = 'OREB';
+            tableHead.querySelector('tr').appendChild(cellOffensiveRebounds);
+
+            const cellFGM = document.createElement('th');
+            cellFGM.textContent = 'FGM';
+            tableHead.querySelector('tr').appendChild(cellFGM);
+
+            const cellFGA = document.createElement('th');
+            cellFGA.textContent = 'FGA';
+            tableHead.querySelector('tr').appendChild(cellFGA);
+
+            const cellFGP = document.createElement('th');
+            cellFGP.textContent = 'FGP%';
+            tableHead.querySelector('tr').appendChild(cellFGP);
+
+            const cellFTM = document.createElement('th');
+            cellFTM.textContent = 'FTM';
+            tableHead.querySelector('tr').appendChild(cellFTM);
+
+            const cellFTA = document.createElement('th');
+            cellFTA.textContent = 'FTA';
+            tableHead.querySelector('tr').appendChild(cellFTA);
+
+            const cellFTP = document.createElement('th');
+            cellFTP.textContent = 'FTP%';
+            tableHead.querySelector('tr').appendChild(cellFTP);
+
+            const cellTPM = document.createElement('th');
+            cellTPM.textContent = 'TPM';
+            tableHead.querySelector('tr').appendChild(cellTPM);
+
+            const cellTPA = document.createElement('th');
+            cellTPA.textContent = 'TPA';
+            tableHead.querySelector('tr').appendChild(cellTPA);
+
+            const cellTPP = document.createElement('th');
+            cellTPP.textContent = 'TPP%';
+            tableHead.querySelector('tr').appendChild(cellTPP);
+
+            const cellSteals = document.createElement('th');
+            cellSteals.textContent = 'ST';
+            tableHead.querySelector('tr').appendChild(cellSteals);
+
+            const cellBlocks = document.createElement('th');
+            cellBlocks.textContent = 'BL';
+            tableHead.querySelector('tr').appendChild(cellBlocks);
+
+            const cellTurnovers = document.createElement('th');
+            cellTurnovers.textContent = 'TO';
+            tableHead.querySelector('tr').appendChild(cellTurnovers);
+
+            const cellPlusMinus = document.createElement('th');
+            cellPlusMinus.textContent = '+/-';
+            tableHead.querySelector('tr').appendChild(cellPlusMinus);
+
+            var array = [];
+            for (var row of data.response) {
+
+                const rowElement = document.createElement('tr');
+
+                const cellGamesPlayed = document.createElement('td');
+                console.log('sdfsdfsd', row.games)
+                cellGamesPlayed.textContent = row.games;
+                rowElement.appendChild(cellGamesPlayed);
+
+                const cellPointsPerGame = document.createElement('td');
+                cellPointsPerGame.textContent = (row.points / row.games).toFixed(1);
+                rowElement.appendChild(cellPointsPerGame);
+
+                const cellAssistsPerGame = document.createElement('td');
+                cellAssistsPerGame.textContent = (row.assists / row.games).toFixed(1);
+                rowElement.appendChild(cellAssistsPerGame);
+
+                const cellTotalRebounds = document.createElement('td');
+                cellTotalRebounds.textContent = (row.totReb / row.games).toFixed(1);
+                rowElement.appendChild(cellTotalRebounds);
+
+                const cellDefensiveRebounds = document.createElement('td');
+                cellDefensiveRebounds.textContent = (row.defReb / row.games).toFixed(1);
+                rowElement.appendChild(cellDefensiveRebounds);
+
+                const cellOffensiveRebounds = document.createElement('td');
+                cellOffensiveRebounds.textContent = (row.offReb / row.games).toFixed(1);
+                rowElement.appendChild(cellOffensiveRebounds);
+
+                const cellFGM = document.createElement('td');
+                cellFGM.textContent = row.fgm;
+                rowElement.appendChild(cellFGM);
+
+                const cellFGA = document.createElement('td');
+                cellFGA.textContent = row.fga;
+                rowElement.appendChild(cellFGA);
+
+                const cellFGP = document.createElement('td');
+                cellFGP.textContent = row.fgp + '%';
+                rowElement.appendChild(cellFGP);
+
+                const cellFTM = document.createElement('td');
+                cellFTM.textContent = row.ftm;
+                rowElement.appendChild(cellFTM);
+
+                const cellFTA = document.createElement('td');
+                cellFTA.textContent = row.fta;
+                rowElement.appendChild(cellFTA);
+
+                const cellFTP = document.createElement('td');
+                cellFTP.textContent = row.ftp + '%';
+                rowElement.appendChild(cellFTP);
+
+                const cellTPM = document.createElement('td');
+                cellTPM.textContent = row.tpm;
+                rowElement.appendChild(cellTPM);
+
+                const cellTPA = document.createElement('td');
+                cellTPA.textContent = row.tpa;
+                rowElement.appendChild(cellTPA);
+
+                const cellTPP = document.createElement('td');
+                cellTPP.textContent = row.tpp + '%';
+                rowElement.appendChild(cellTPP);
+
+                const cellSteals = document.createElement('td');
+                cellSteals.textContent = row.steals;
+                rowElement.appendChild(cellSteals);
+
+                const cellBlocks = document.createElement('td');
+                cellBlocks.textContent = row.blocks;
+                rowElement.appendChild(cellBlocks);
+
+                const cellTurnovers = document.createElement('td');
+                cellTurnovers.textContent = row.turnovers;
+                rowElement.appendChild(cellTurnovers);
+
+                const cellPlusMinus = document.createElement('td');
+                cellPlusMinus.textContent = row.plusMinus
+                rowElement.appendChild(cellPlusMinus);
+
+                tableBody.appendChild(rowElement);
+
+                array.push(row.fgp);
+                array.push(row.ftp);
+                array.push(row.tpp);  
+
+            }
+            statCharts('blue', row.fgp, row.ftp, row.tpp, 'chDonut1', 'chDonut2', 'chDonut3', 'Field Goal %', 'Free Throws %', '3-Point Field Goal %')
+            
+            return array;
+        })
+        .catch(error => {
+            console.log(error)
+        }); 
+    };
+
+    addStatsToTable(document.getElementById('id_team').content, 2021);
+
+    // (async() => {
+    //     var codes = await addStatsToTable(document.getElementById('id_team').content, 2021).then(data => {
+    //       return data;
+    //     });
+    //     console.log('XAXAXAXAXAXAA', codes);
+    //     statCharts('blue', codes[0], codes[1], codes[2], 'chDonut1', 'chDonut2', 'chDonut3', 'Field Goal %', 'Free Throws %', '3-Point Field Goal %')
+    // })();
+
+
+    function statCharts(color, x, y, z, id1, id2, id3, title1, title2, title3){
+      // chart colors
+      var colors = [color, '#f9f9f9', '#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+      /* 3 donut charts */
+      var donutOptions1 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: x + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions2 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: y + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions3 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: z + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: [title1],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [x, 100-x]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id1);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions1
+        });
+      }
+
+      var chDonutData2 = {
+          labels: [title2],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [y, 100-y]
+            }
+          ],
+          
+      };
+
+      var chDonut2 = document.getElementById(id2);
+      if (chDonut2) {
+        new Chart(chDonut2, {
+            type: 'pie',
+            data: chDonutData2,
+            options: donutOptions2
+        });
+      }
+
+      var chDonutData3 = {
+          labels: [title3],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [z, 100-z]
+            }
+          ],
+          
+      };
+
+      var chDonut3 = document.getElementById(id3);
+      if (chDonut3) {
+        new Chart(chDonut3, {
+            type: 'pie',
+            data: chDonutData3,
+            options: donutOptions3
+        });
+      }
+    }
+
+
+
+
+    function getGamesPoints() {
+      const options = {
+          method: 'GET',
+          headers: {
+              'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+              'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+          }
+      };
+      const tid = document.getElementById("id_team").content;
+      return fetch('https://api-nba-v1.p.rapidapi.com/games?season=2021&team=' + tid, options)
+      .then(response => {
+          if(!response.ok){
+              throw Error('error')
+          }
+          return response.json();
+      })
+      .then(data => {
+          var arPoints = [];
+          var codeNames = [];
+          var teamId = document.getElementById('id_team').content;
+          for (var row of data.response) {
+              if(row.league == 'standard' && row.scores.home.points != null){  
+                  if(row.teams.home.id == teamId){
+                    arPoints.push(row.scores.home['points']);
+                    codeNames.push(row.teams.visitors['code']);
+                  }   
+                  else{
+                    arPoints.push(row.scores.visitors['points']);
+                    codeNames.push(row.teams.home['code']);
+                  }         
+              }
+          }
+          var Array = [];
+          Array.push(arPoints);
+          Array.push(codeNames);
+          console.log(codeNames)
+          return Array;
+      })
+      .catch(error => {
+          console.log(error)
+      }); 
+    };
+      
+      (async() => {
+          var Array = await getGamesPoints().then(data => {
+            return data;
+          });
+
+          var allCodes = [];
+          var codes = Array[1];
+          var dataPoints = Array[0];
+
+          var numbers = [];
+          for(i = 1; i < 83; i++){
+            numbers.push(i)
+          }
+
+          for(i = 0; i < codes.lenght; i++){
+            if(allCodes.includes(codes[i])){
+              allCodes.push(codes[i])
+            }
+          }
+          console.log('123345', allCodes)
+
+
+
+          var ctx1 = document.getElementById("linePoints").getContext('2d');
+          lineChart(ctx1, codes, dataPoints, 'Points', 'rgb(255,165,0, 0.2)', '#ff6500');
+      })();
+
+
+    function headToHead(teamOne, teamTwo, season){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+          'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+        }
+      };
+      if(season == 'All seasons'){
+        url = 'https://api-nba-v1.p.rapidapi.com/games?h2h=' + teamOne + '-' + teamTwo
+      }
+      else{
+        url = 'https://api-nba-v1.p.rapidapi.com/games?season=' + season + '&h2h=' + teamOne + '-' + teamTwo
+      }
+                      
+      return fetch(url, options)
+      //return fetch("/static/json/headToHead.JSON")
+      .then(response => {
+          if(!response.ok){
+              throw Error('error')
+          }
+          return response.json();
+      })
+      .then(data => {
+        console.log(data.response);
+        var wins = 0;
+        var losses = 0;
+        var pointsSc = 0;
+        var pointsRe = 0;
+        var difW = [];
+        var difL = [];
+        var count = 0;
+        for (var row of data.response) {
+          if(row.league == 'standard'){
+            if(row.teams.visitors['id'] == teamOne){
+              pointsSc = pointsSc + row.scores.visitors['points']
+              pointsRe = pointsRe + row.scores.home['points']
+              if(row.scores.visitors['points'] > row.scores.home['points']){
+                wins = wins + 1;
+                difW.push(Number(row.scores.visitors['points']) - Number(row.scores.home['points']));
+              }
+              else{
+                losses = losses + 1;
+                difL.push(Number(row.scores.home['points']) - Number(row.scores.visitors['points']));
+              }
+            }
+            else{
+              pointsSc = pointsSc + row.scores.home['points']
+              pointsRe = pointsRe + row.scores.visitors['points']
+              if(row.scores.home['points'] > row.scores.visitors['points']){
+                wins = wins + 1;
+                difW.push(Number(row.scores.home['points']) - Number(row.scores.visitors['points']));
+              }
+              else{
+                losses = losses + 1;
+                difL.push(Number(row.scores.visitors['points']) - Number(row.scores.home['points']));
+              }
+            }
+          }  
+          count = count + 1
+        }
+        if(difW.length == 0){
+          document.getElementById('largWin').innerHTML = '-'
+        }
+        else{
+          document.getElementById('largWin').innerHTML = Math.max.apply(Math, difW);
+        }
+        if(difL.length == 0){
+          document.getElementById('largDef').innerHTML = '-'
+        }
+        else{
+          document.getElementById('largDef').innerHTML = Math.max.apply(Math, difL);
+        }
+
+        document.getElementById('avPointsSc').innerHTML = (pointsSc/count).toFixed(1);
+        document.getElementById('avPointsRe').innerHTML = (pointsRe/count).toFixed(1);
+        document.getElementById('record').innerHTML = wins + ' - ' + losses;
+        if(data.response[0].teams.visitors['id'] == teamOne){
+          document.getElementById('header').innerHTML = 'Against the ' + data.response[0].teams.home['name']
+          document.getElementById('logo').src = data.response[0].teams.home['logo']
+        }
+        else{
+          document.getElementById('header').innerHTML = 'Against the ' + data.response[0].teams.visitors['name']
+          document.getElementById('logo').src = data.response[0].teams.visitors['logo']
+        }
+      
+      })
+      .catch(error => {
+          console.log(error)
+      }); 
+    }
+
+    var selectobject = document.getElementById("inputState1");
+    for (var i=0; i<selectobject.length; i++) {
+      if(selectobject.options[i].value != null){
+        if(selectobject.options[i].value == document.getElementById('id_team').content)
+          selectobject.remove(i);
+      } 
+    }
+
+  
+
+
+  // function addStatsToTable(teamId, season) {
+  //     const options = {
+  //       method: 'GET',
+  //       headers: {
+  //         'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+  //         'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+  //       }
+  //     };
+
+  //     return fetch('https://api-nba-v1.p.rapidapi.com/games?season=' + season + '&team=' + teamId, options)
+  //     //return fetch("/static/json/allBucksGames.JSON")
+  //     .then(response => {
+  //         console.log(response);
+  //         if(!response.ok){
+  //             throw Error('error')
+  //         }
+  //         return response.json();
+  //     })
+  //     .then(data => {
+  //       const fetchGames = () => {
+  //       var homeWins = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  //       var awayWins = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  //       var homeLosses = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  //       var awayLosses = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  //       var ides = [9466, 9470, 9465, 9461];
+
+  //       let urls = [];
+  //       ides.forEach(function(storyId) {
+  //         // urls.push(`https://api-nba-v1.p.rapidapi.com/games/statistics?id=${storyId}`);
+  //         urls.push(`/static/json/${storyId}.JSON`);
+  //       });
+
+  //       const options2 = {
+  //         method: 'GET',
+  //         headers: {
+  //           'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+  //           'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f'
+  //         }
+  //       };
+
+  //       var telikosPinakas = [];
+
+  //       Promise.all(
+  //         urls.map(url =>
+  //           fetch(url, options2)
+  //             .then(response => response.json())
+  //             .catch(err => console.error(err))
+  //         )
+  //       ).then(data => {  
+          
+  //         for (var row of data) {
+  //           //console.log(row.response[0].team['id']); 
+          
+  //           if(row.response[0].team['id'] == 21){
+  //             if(row.response[0].statistics[0].points > row.response[1].statistics[0].points){
+  //               var path = row.response[0].statistics[0];
+  //               awayWins[0] = awayWins[0] + 1;
+  //               awayWins[1] = awayWins[1] + path.points;
+  //               awayWins[2] = awayWins[2] + path.assists;
+  //               awayWins[3] = awayWins[3] + path.totReb;
+  //               awayWins[4] = awayWins[4] + path.defReb;
+  //               awayWins[5] = awayWins[5] + path.offReb;
+  //               awayWins[6] = awayWins[6] + path.fgm;
+  //               awayWins[7] = awayWins[7] + path.fga;
+  //               awayWins[8] = awayWins[8] + Number(path.fgp);
+  //               awayWins[9] = awayWins[9] + path.ftm;
+  //               awayWins[10] = awayWins[10] + path.fta;
+  //               awayWins[11] = awayWins[11] + Number(path.ftp);
+  //               awayWins[12] = awayWins[12] + path.tpm;
+  //               awayWins[13] = awayWins[13] + path.tpa;
+  //               awayWins[14] = awayWins[14] + Number(path.tpp);
+  //               awayWins[15] = awayWins[15] + path.steals;
+  //               awayWins[16] = awayWins[16] + path.blocks;
+  //               awayWins[17] = awayWins[17] + path.turnovers;
+  //               awayWins[18] = awayWins[18] + Number(path.plusMinus);
+  //               console.log('awayWins', awayWins)
+                
+  //             }
+  //             else{
+  //               var path = row.response[0].statistics[0];
+  //               awayLosses[0] = awayLosses[0] + 1;
+  //               awayLosses[1] = awayLosses[1] + path.points;
+  //               awayLosses[2] = awayLosses[2] + path.assists;
+  //               awayLosses[3] = awayLosses[3] + path.totReb;
+  //               awayLosses[4] = awayLosses[4] + path.defReb;
+  //               awayLosses[5] = awayLosses[5] + path.offReb;
+  //               awayLosses[6] = awayLosses[6] + path.fgm;
+  //               awayLosses[7] = awayLosses[7] + path.fga;
+  //               awayLosses[8] = awayLosses[8] + Number(path.fgp);
+  //               awayLosses[9] = awayLosses[9] + path.ftm;
+  //               awayLosses[10] = awayLosses[10] + path.fta;
+  //               awayLosses[11] = awayLosses[11] + Number(path.ftp);
+  //               awayLosses[12] = awayLosses[12] + path.tpm;
+  //               awayLosses[13] = awayLosses[13] + path.tpa;
+  //               awayLosses[14] = awayLosses[14] + Number(path.tpp);
+  //               awayLosses[15] = awayLosses[15] + path.steals;
+  //               awayLosses[16] = awayLosses[16] + path.blocks;
+  //               awayLosses[17] = awayLosses[17] + path.turnovers;
+  //               awayLosses[18] = awayLosses[18] + Number(path.plusMinus);
+  //               console.log('awayLosses', awayLosses)
+  //             }
+  //           }
+  //           else if(row.response[1].team['id'] == 21){
+  //             if(row.response[0].statistics[0].points > row.response[1].statistics[0].points){
+  //               var path = row.response[1].statistics[0];
+  //               homeLosses[0] = homeLosses[0] + 1;
+  //               homeLosses[1] = homeLosses[1] + path.points;
+  //               homeLosses[2] = homeLosses[2] + path.assists;
+  //               homeLosses[3] = homeLosses[3] + path.totReb;
+  //               homeLosses[4] = homeLosses[4] + path.defReb;
+  //               homeLosses[5] = homeLosses[5] + path.offReb;
+  //               homeLosses[6] = homeLosses[6] + path.fgm;
+  //               homeLosses[7] = homeLosses[7] + path.fga;
+  //               homeLosses[8] = homeLosses[8] + Number(path.fgp);
+  //               homeLosses[9] = homeLosses[9] + path.ftm;
+  //               homeLosses[10] = homeLosses[10] + path.fta;
+  //               homeLosses[11] = homeLosses[11] + Number(path.ftp);
+  //               homeLosses[12] = homeLosses[12] + path.tpm;
+  //               homeLosses[13] = homeLosses[13] + path.tpa;
+  //               homeLosses[14] = homeLosses[14] + Number(path.tpp);
+  //               homeLosses[15] = homeLosses[15] + path.steals;
+  //               homeLosses[16] = homeLosses[16] + path.blocks;
+  //               homeLosses[17] = homeLosses[17] + path.turnovers;
+  //               homeLosses[18] = homeLosses[18] + Number(path.plusMinus);
+  //               console.log('homeLosses', homeLosses)
+                
+  //             }
+  //             else{
+  //               var path = row.response[1].statistics[0];
+  //               homeWins[0] = homeWins[0] + 1;
+  //               homeWins[1] = homeWins[1] + path.points;
+  //               homeWins[2] = homeWins[2] + path.assists;
+  //               homeWins[3] = homeWins[3] + path.totReb;
+  //               homeWins[4] = homeWins[4] + path.defReb;
+  //               homeWins[5] = homeWins[5] + path.offReb;
+  //               homeWins[6] = homeWins[6] + path.fgm;
+  //               homeWins[7] = homeWins[7] + path.fga;
+  //               homeWins[8] = homeWins[8] + Number(path.fgp);
+  //               homeWins[9] = homeWins[9] + path.ftm;
+  //               homeWins[10] = homeWins[10] + path.fta;
+  //               homeWins[11] = homeWins[11] + Number(path.ftp);
+  //               homeWins[12] = homeWins[12] + path.tpm;
+  //               homeWins[13] = homeWins[13] + path.tpa;
+  //               homeWins[14] = homeWins[14] + Number(path.tpp);
+  //               homeWins[15] = homeWins[15] + path.steals;
+  //               homeWins[16] = homeWins[16] + path.blocks;
+  //               homeWins[17] = homeWins[17] + path.turnovers;
+  //               homeWins[18] = homeWins[18] + Number(path.plusMinus);
+  //               console.log('homeWins', homeWins)
+  //             }
+  //           }
+  //         }  
+          
+  //         telikosPinakas.push(homeWins);
+  //         telikosPinakas.push(homeLosses);
+  //         telikosPinakas.push(awayWins);
+  //         telikosPinakas.push(awayLosses);
+  //         console.log('kodikeeeeeeeeeees', telikosPinakas)
+  //         return telikosPinakas;
+  //       });
+        
+  //     }
+
+  //     // (async() => {
+  //     //     var codes = await fetchGames()
+  //     //     console.log('kodikes', codes)
+  //     // })();
+
+  //     fetchGames();
+  //     })
+  //     .catch(error => {
+  //         console.log(error)
+  //     }); 
+  //   };
+
+  //   addStatsToTable(21, 2020)
+
+
+    function getNews(team){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://nba-latest-news.p.rapidapi.com/news/team/${team}`, options)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          for(var row of data){
+            console.log(row)
+
+            const node = document.getElementById("article");
+            const clone = node.cloneNode(true);
+
+            if(row.source == 'bleacher_report'){
+              var source = 'https://getlogo.net/wp-content/uploads/2019/07/bleacher-report-logo-vector.png';
+            }
+            else if(row.source == 'espn'){
+              var source = 'https://logowik.com/content/uploads/images/espn5188.jpg';
+            }
+            else if(row.source == 'nba'){
+              var source = 'https://seeklogo.com/images/N/nba-logo-41668C66DB-seeklogo.com.png';
+            }
+            else if(row.source == 'nba_canada'){
+              var source = 'https://download.logo.wine/logo/NBA_TV_Canada/NBA_TV_Canada-Logo.wine.png';
+            }
+            else if(row.source == 'slam'){
+              var source = 'https://imgix.cosmicjs.com/7d1bf900-e4b9-11eb-aaa7-f94d35ca882e-slam.png';
+            }
+            else if(row.source == 'yahoo'){
+              var source = 'https://images.squarespace-cdn.com/content/v1/5ff494b9931735466ce28d5b/1622647837290-EC9JYOEY3W8CZ9HSNKRC/Yahoo_Sports_New_Logo.jpg';
+            }
+
+            clone.children[0].children[0].children[0].children[0].children[0].src = source;
+            clone.children[0].children[0].children[0].children[0].children[1].innerHTML = row.title;
+            clone.setAttribute('onclick', 'window.open("' + row.url + '");');
+            clone.style.cursor = 'pointer';
+
+            document.getElementById("articles").appendChild(clone);
+          }
+          const list = document.getElementById("articles");
+          list.removeChild(list.firstElementChild);
+        })
+        .catch(err => console.error(err));
+    }
+
+
+
+    function getTeamName(id){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '71df5c7d97msh81656ed06f59badp159b26jsna1076804ff4f',
+          'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-nba-v1.p.rapidapi.com/teams?id=${id}`, options)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          var name = data.response[0].nickname;
+          getNews(name)
+
+        })
+        .catch(err => console.error(err));
+    }
+
+    getTeamName(document.getElementById('id_team').content)
+
+
+    var sel = document.getElementById('inputState1');
+    var opt = sel.children[1];
+    opt.setAttribute('selected', '');
+    //headToHead(document.getElementById('id_team').content, 1, 2021);
+    headToHead(21, 1, 2021);
+    
+</script>
+<script src="/static/js/centeredDonutText.js"></script>
+
+
+
+{% endblock %}
+</body>
+</html>
+

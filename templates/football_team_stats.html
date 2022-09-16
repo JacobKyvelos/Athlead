@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta id="id_league" content="{{league_id}}">
+  <meta id="id_team" content="{{team_id}}">
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/static/flags/css/flag-icon.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/static/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/static/images/favicon.png" />
+  <style>
+    .arrow-1 {
+      width:100px;
+      height:30px;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .arrow-1:before {
+      content: "";
+      background: currentColor;
+      width:15px;
+      clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));
+      animation: a1 1.5s infinite linear;
+    }
+    @keyframes a1 {
+      90%,100%{flex-grow: 1}
+    }
+
+    .carousel-inner {
+      transition-property: opacity;
+    }
+
+    @media only screen and (max-device-width: 500px) {
+      #faceLogo {
+        max-width: 20%;
+      }
+    }
+    
+  </style>
+  {{ JSGlue.include() }}
+</head>
+<body>
+  {% block content %}
+  <div class="container-scroller">
+    <div class="row p-0 m-0 proBanner" id="proBanner">
+      <div class="col-md-12 p-0 m-0">
+        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="ps-lg-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <button id="bannerClose" class="btn border-0 p-0">
+              <i class="mdi mdi-close text-white me-0"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">UI Elements</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">UI Elements</span>
+              <i class="menu-arrow"></i> 
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Form elements</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Icons</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">help</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active ps-0" href="{{ url_for('football_team_stats', league_id =league_id, team_id = team_id) }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('football_team_players', league_id =league_id, team_id = team_id) }}" aria-selected="true">Squad</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('football_team_fixtures', league_id =league_id, team_id = team_id) }}" aria-selected="false">Fixtures</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('football_team_results', league_id =league_id, team_id = team_id) }}" aria-selected="false">Results</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link border-0" href="{{ url_for('football_team_live', league_id =league_id, team_id = team_id) }}" aria-selected="false">Live</a>
+                    </li>
+                  </ul>
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+                <br>
+
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+
+                    <div class="row">
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <img id="logoTeam" src="" class="img-fluid" style="display: block; margin-left: auto; margin-right: auto; height: 200px;" alt="Responsive image">
+                            <br>
+                            <div style="text-align: center;">
+                              <h5 id="onomaTeam" class="card-title fw-bold"></h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-borderless " style="vertical-align: middle;">
+                                <tbody>
+                                  <tr>
+                                    <th>Name</th>
+                                    <td id="name99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Acronym</th>
+                                    <td id="acr99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>country</th>
+                                    <td id="count99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Founded on</th>
+                                    <td id="found99" style="text-align: center;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div id="bg1" style="
+                          height: 100%;
+                          background-position: center;
+                          background-repeat: no-repeat;
+                          background-size: cover;
+                        " class="card" style="width: 18rem;">
+                          <!-- <img id="vanueLogo" src="" class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;  height: 200px;" alt="Responsive image"> -->
+                          <!-- <div class="card-body">
+                            <img id="vanueLogo" src="" class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;  height: 200px;" alt="Responsive image">
+                            <br>
+                            <div style="text-align: center;">
+                              <h5 class="card-title fw-bold">Venue</h5>
+                            </div>
+                          </div> -->
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-borderless " style="vertical-align: middle;">
+                                <tbody>
+                                  <tr>
+                                    <th>Venue Name</th>
+                                    <td id="venue99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Address</Address></th>
+                                    <td id="adr99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>City</th>
+                                    <td id="city99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Capacity</th>
+                                    <td id="cap99" style="text-align: center;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row row-flex">
+                      <div class="col-lg-4 col-md-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Player Stats</h4>
+                            
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless " style="vertical-align: middle;">
+                                      <tbody>
+                                        <tr>
+                                          <th>Games Played</th>
+                                          <td id="gp" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Wins / Losses / Draws</th>
+                                          <td id="wld" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Goals Scored</th>
+                                          <td id="gf" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Goals Received</th>
+                                          <td id="ga" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Clean Sheets</th>
+                                          <td id="cs" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Biggest Win Streak</th>
+                                          <td id="bws" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Last 5 Games</th>
+                                          <td id="l5g" style="text-align: center;"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless " style="vertical-align: middle;">
+                                      <tbody>
+                                        <tr>
+                                          <th>Total Passes</th>
+                                          <td id="passes" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Duels</th>
+                                          <td id="duels" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Duels Won</th>
+                                          <td id="duelsWon" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Fouls Committed</th>
+                                          <td id="foulsC" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Fouls Drawn</th>
+                                          <td id="foulsD" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Total Offsides</th>
+                                          <td id="off" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Average Offsides per Game</th>
+                                          <td id="avOff" style="text-align: center;"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless " style="vertical-align: middle;">
+                                      <tbody>
+                                        <tr>
+                                          <th>Shots on Target</th>
+                                          <td id="shotsOn" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Total Shots</th>
+                                          <td id="shotsTot" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Shooting Accuracy</th>
+                                          <td id="shotsAc" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Total Yellow Cards</th>
+                                          <td id="yCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Average Yellow Cards per Game</th>
+                                          <td id="avYCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Total Red Cards</th>
+                                          <td id="rCard" style="text-align: center;"></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Average Red Cards per Game</th>
+                                          <td id="avRCard" style="text-align: center;"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Goals / Cards Line Charts</h4>
+                            <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              </div>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <div>
+                                    <canvas id="lineChart_Goals" height="100%"></canvas>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div>
+                                    <canvas id="lineChart_Goals2" height="100%"></canvas>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-4 col-md-12 col-sm-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 id="titleTeam" class="card-title">Wins / Losses / Draws	</h4>
+                            <canvas id="chDonut1"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 id="titleTeam" class="card-title">Shooting Accuracy %</h4>
+                            <canvas id="chDonut2"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 id="titleTeam" class="card-title">Duels Success %</h4>
+                            <canvas id="chDonut3"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-lg-4 col-md-6 col-sm-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <canvas id="chDonut4"></canvas>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h4 class="card-title">Team's Transfers History</h4>
+                            <div class="table-responsive">
+                              <table id="transfers" class="table" style="vertical-align: middle;">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-sm-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <br>
+                          <h4 style="margin-left: 7%;" class="card-title">Team's Top Scorer</h4>
+                          <img id="faceLogo1" style="max-width: 40%; height: auto; margin-left: auto; margin-right: auto;" class="card-img-top" src="" alt="Logo">
+                          <div class="card-body">
+                            <div>
+                              <h5 id="name1" class="card-title" style="text-align: center;"></h5>
+                            </div>
+                            <div>
+                              <table class="table mb-0 table">
+                                <tbody>
+                                    <tr>
+                                      <td>Nationality</td>
+                                      <td style="text-align: center;">
+                                        <img id='flag1' style="width: 30px; height: auto; margin-left: auto; margin-right: auto;" class="img-fluid rounded-0" src='' alt="Flag">
+                                        <!-- <span class="flag-icon flag-icon-grc"></span> -->
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Goals</td>
+                                      <td id="number1" style="text-align: center;"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Position</td>
+                                      <td id="pos1"></td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                              <!-- <div style="text-align: center;">
+                                <a href = ''>Show player</a>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-sm-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <br>
+                          <h4 style="margin-left: 7%;" class="card-title">Team's Player with Most Assists</h4>
+                          <img id="faceLogo2" style="max-width: 40%; height: auto; margin-left: auto; margin-right: auto;" class="card-img-top" src="" alt="Logo">
+                          <div class="card-body"> 
+                            <div>
+                              <h5 id="name2" class="card-title" style="text-align: center;"></h5>
+                            </div>
+                            <div>
+                              <table class="table mb-0 table">
+                                <tbody>
+                                    <tr>
+                                      <td>Nationality</td>
+                                      <td style="text-align: center;">
+                                        <img  id='flag2' style="width: 30px; height: auto; margin-left: auto; margin-right: auto;" class="img-fluid rounded-0" src='' alt="Flag">
+                                        <!-- <span class="flag-icon flag-icon-grc"></span> -->
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Assists</td>
+                                      <td id="number2" style="text-align: center;"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Position</td>
+                                      <td id="pos2"></td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                              <!-- <div style="text-align: center;">
+                                <a href = ''>Show player</a>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/static/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/static/vendors/progressbar.js/progressbar.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/static/js/off-canvas.js"></script>
+  <script src="/static/js/hoverable-collapse.js"></script>
+  <script src="/static/js/template.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <script src="/static/js/Chart.roundedBarCharts.js"></script>
+
+  <script src="/static/js/centeredDonutText.js"></script>
+  <!-- End custom js for this page-->
+
+<script>
+    function teamStats(teamId, leagueId, season) {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/teams/statistics?league=${leagueId}&season=${season}&team=${teamId}`, options)
+      //return fetch("/static/json/foot_team_stats.JSON")
+      .then(response => {
+          //console.log(response);
+          if(!response.ok){
+              throw Error('error')
+          }
+          return response.json();
+      })
+      .then(data => {
+          var row = data.response;
+          console.log(row)
+
+          var gp = document.getElementById('gp');
+          gp.innerHTML = row.fixtures.played['total'];
+          
+          var wld = document.getElementById('wld');
+          wld.innerHTML = row.fixtures.wins['total'] + ' / ' + row.fixtures.loses['total'] + ' / ' + row.fixtures.draws['total'];
+
+          var gf = document.getElementById('gf');
+          gf.innerHTML = innerHTML = row.goals.for.total['total'];
+
+          var ga = document.getElementById('ga');
+          ga.innerHTML = row.goals.against.total['total'];
+
+          var cs = document.getElementById('cs');
+          cs.innerHTML = row.clean_sheet['total'];
+
+          var bws = document.getElementById('bws');
+          bws.innerHTML = row.biggest.streak['wins'];
+
+          var l5g = document.getElementById('l5g');
+          var len = row.form.length;
+          if(len > 5){
+            l5g.innerHTML = row.form.slice(len - 5, len);
+          }
+          else{
+            l5g.innerHTML = row.form;
+          }
+
+          function graphMaker(table, path){
+            var values = Object.values(path);
+            for(var val of values){
+              table.push(val['total']);
+            }
+
+            var index = table.indexOf(null);
+
+            if (index !== -1) {
+              table[index] = 0;
+            }
+            return table;
+          }
+
+          var goalsAgainst = graphMaker([], data.response.goals.against.minute);
+          var goalsFor = graphMaker([], data.response.goals.for.minute);
+
+          var yellowCards = graphMaker([], data.response.cards.yellow);
+          var redCards = graphMaker([], data.response.cards.red);
+
+          var yc = 0;
+          var rc = 0;
+
+          for(i = 0; i < yellowCards.length; i++){
+            yc += yellowCards[i];
+          }
+
+          for(i = 0; i < redCards.length; i++){
+            rc += redCards[i];
+          }
+
+          var yCard = document.getElementById('yCard');
+          yCard.innerHTML = innerHTML = yc;
+
+          var rCard = document.getElementById('rCard');
+          rCard.innerHTML = rc;
+
+          var avYCard = document.getElementById('avYCard');
+          avYCard.innerHTML = (yc / row.fixtures.played['total']).toFixed(1);
+
+          var avRCard = document.getElementById('avRCard');
+          avRCard.innerHTML = (rc / row.fixtures.played['total']).toFixed(2);
+
+          var labels = ["0'", "15'", "30'", "45'", "60'", "75'", "90'"];
+          lineChart("lineChart_Goals", goalsFor, goalsAgainst, labels, 'Goals For', 'Goals Against');
+          lineChart("lineChart_Goals2", yellowCards, redCards, labels, 'Yellow Cards', 'Red Cards');
+          statCharts('chDonut1', ['Wins', 'Draws', 'Losses'], row.fixtures.wins['total'], 'green', row.fixtures.draws['total'], 'orange', row.fixtures.loses['total'], 'red')
+          
+          
+      })
+      .catch(error => {
+          console.log(error)
+      }); 
+    };
+
+    
+
+    function lineChart(id, data1, data2, labels, label1, label2){
+      var ctxL = document.getElementById(id).getContext('2d');
+      var myLineChart = new Chart(ctxL, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+              label: label1,
+              data: data1,
+              backgroundColor: [
+                'rgba(45, 85, 255, .2)',
+              ],
+              borderColor: [
+                'rgba(1, 1, 122, .7)',
+              ],
+              borderWidth: 2
+            },
+            {
+              label: label2,
+              data: data2,
+              backgroundColor: [
+                'rgba(255, 165, 0, .2)',
+              ],
+              borderColor: [
+                'rgba(255, 69, 0, .7)',
+              ],
+              borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [{
+                display: true,
+                // ticks: {
+                //     min: 0, // minimum value
+                //     max: 30 // maximum value
+                // }
+            }]
+        }
+        }
+      });
+    }
+
+
+
+
+
+    function statCharts(id, labels, d1, c1, d2, c2, d3, c3){
+      // chart colors
+      var colors = [c1, c2, c3];
+
+      var donutOptions = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: d1 + '/' + d2 + '/' + d3,
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: labels,
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [d1, d2, d3]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions
+        });
+      }
+    }
+
+
+
+
+
+
+
+    function statCharts2(color, x, y, id1, id2, title1, title2){
+      // chart colors
+      var colors = [color, '#f9f9f9', '#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+      /* 3 donut charts */
+      var donutOptions1 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: x + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      var donutOptions2 = {
+        cutoutPercentage: 85, 
+        legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+        elements: {
+          center: {
+            text: y + '%',
+            color: 'black'
+          }
+        },
+      };
+
+      // donut 1
+      var chDonutData1 = {
+          labels: [title1],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [x, 100-x]
+            }
+          ],
+          
+      };
+
+      var chDonut1 = document.getElementById(id1);
+      if (chDonut1) {
+        new Chart(chDonut1, {
+            type: 'pie',
+            data: chDonutData1,
+            options: donutOptions1
+        });
+      }
+
+      var chDonutData2 = {
+          labels: [title2],
+          datasets: [
+            {
+              backgroundColor: colors.slice(0,3),
+              borderWidth: 0,
+              data: [y, 100-y]
+            }
+          ],
+          
+      };
+
+      var chDonut2 = document.getElementById(id2);
+      if (chDonut2) {
+        new Chart(chDonut2, {
+            type: 'pie',
+            data: chDonutData2,
+            options: donutOptions2
+        });
+      }
+    }
+
+
+
+
+
+
+
+
+
+    
+    function transfers(teamId) {
+      return fetch("/static/json/LIV_Transfers.JSON")
+      .then(response => {
+          return response.json();
+      })
+      .then(data => {
+          
+          var cash = [];
+          var names = [];
+          var ides = [];
+          var t1 = [];
+          var t1_logo = [];
+          var t2 = [];
+          var t2_logo = [];
+          var c = 0;
+
+          for(var row of data.response){
+            console.log(row)
+            c++;
+            for(var tran of row.transfers){ 
+              if(tran.teams.in['id'] == teamId){
+                if(tran.type != null && tran.type.includes('M')){
+                  if(tran.type[tran.type.length - 1] == '€' || tran.type[0] == '€'){
+                    if(tran.type[tran.type.length - 1] == '€'){
+                      console.log(tran.type, ' ', tran.type.slice(0, tran.type.length - 3))
+                      cash.push(Number(tran.type.slice(0, tran.type.length - 3)));
+                    }
+                    else{
+                      console.log(tran.type, ' ', tran.type.slice(2, tran.type.length - 1));
+                      cash.push(Number(tran.type.slice(2, tran.type.length - 1)));
+                    }
+                    names.push(row.player['name']);
+                    ides.push(row.player['id']);
+                    t1.push(tran.teams.in['name']);
+                    t1_logo.push(tran.teams.in['logo']);
+                    t2.push(tran.teams.out['name']);
+                    t2_logo.push(tran.teams.out['logo']);
+                  }
+                }
+              }
+            }
+          }   
+
+          console.log(largest([0, 0, 0],[0, 0, 0], cash));
+
+          table = document.getElementById("transfers");
+
+          const tableHead = table.querySelector('thead')
+          const tableBody = table.querySelector('tbody')
+
+          tableHead.innerHTML = "<tr></tr>";
+          tableBody.innerHTML = "";
+
+          const cellDate = document.createElement('th');
+          cellDate.textContent = 'Player';
+          tableHead.querySelector('tr').appendChild(cellDate);
+
+          const cellFrom = document.createElement('th');
+          cellFrom.textContent = 'From';
+          tableHead.querySelector('tr').appendChild(cellFrom);
+
+          const cellArrow = document.createElement('th');
+          cellArrow.textContent = '';
+          tableHead.querySelector('tr').appendChild(cellArrow);
+
+          const cellTo = document.createElement('th');
+          cellTo.textContent = 'To';
+          tableHead.querySelector('tr').appendChild(cellTo);
+
+          const cellCash = document.createElement('th');
+          cellCash.innerHTML = '<i class="mdi mdi-currency-eur"></i>';
+          tableHead.querySelector('tr').appendChild(cellCash);
+
+          var indexes = largest([0, 0, 0],[0, 0, 0], cash)[1];
+          var posa = largest([0, 0, 0],[0, 0, 0], cash)[0];
+
+          for(i = 0; i < 3; i++){  
+            const rowElement = document.createElement('tr');
+            rowElement.setAttribute('id', i);
+
+            // const cellDate = document.createElement('td');
+            // const date = row.date;
+            // const [year, month, day] = date.split('-');
+            // const result = [day, month, year].join('-');
+            // cellDate.innerHTML = result;
+            // rowElement.appendChild(cellDate);
+
+            const cellDate = document.createElement('td');
+            cellDate.innerHTML = names[indexes[i]];
+            rowElement.appendChild(cellDate);
+
+            const cellFrom = document.createElement('td');
+            cellFrom.innerHTML = '<img id="teamLogo" style="width: auto; height: 50px;" class="card-img-fluid rounded-0" src="' +  t2_logo[indexes[i]] +   '" alt="Logo">';
+            rowElement.appendChild(cellFrom);
+
+            const cellArrow = document.createElement('td');
+            cellArrow.innerHTML = '<div style="color: rgba(255, 69, 0, .7);" class="arrow-1"></div>';
+            rowElement.appendChild(cellArrow);
+            
+
+            const cellTo = document.createElement('td');
+            cellTo.innerHTML = '<img id="teamLogo" style="width: auto; height: 50px;" class="card-img-fluid rounded-0" src="' +  t1_logo[indexes[i]] +   '" alt="Logo">';
+            rowElement.appendChild(cellTo);
+
+            const cellCash = document.createElement('td');
+            cellCash.innerHTML = posa[i] + '€';
+            rowElement.appendChild(cellCash);
+
+            tableBody.appendChild(rowElement);
+          }
+
+          getPlayersHeads([ides[indexes[0]], ides[indexes[1]], ides[indexes[2]]], 2021) 
+   
+      })
+      .catch(error => {
+          console.log(error)
+      }); 
+    };
+
+
+
+
+
+
+
+
+    function additionalTeamStats(teamId, season, i, stat, topScorer, topAssists, names, photos, nat) {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/players?team=${teamId}&season=${season}&page=${i}`, options)
+      //return fetch("/static/json/page" + i + ".JSON")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        //console.log(data.response);
+
+        for(var row of data.response){
+          //console.log(row);
+          stat['passes'] += row.statistics[0].passes['total'];
+          stat['shotsTotal'] += row.statistics[0].shots['total'];
+          stat['shotsOn'] += row.statistics[0].shots['on'];
+          stat['foulsC'] += row.statistics[0].fouls['committed'];
+          stat['foulsD'] += row.statistics[0].fouls['drawn'];
+          stat['duels'] += row.statistics[0].duels['total'];
+          stat['duelsWon'] += row.statistics[0].duels['won'];
+          topScorer.push(row.statistics[0].goals.total)
+          topAssists.push(row.statistics[0].goals.assists)
+          names.push(row.player.name)
+          photos.push(row.player.photo)
+          nat.push(row.player.nationality)
+        }
+
+
+        //console.log(stat);
+        var pages = data.paging['total']
+        var current = data.paging['current']
+        if (current < pages){
+          return additionalTeamStats(teamId, season, current + 1, stat, topScorer, topAssists, names, photos, nat);
+        }
+        else{
+          var passes = document.getElementById('passes');
+          passes.innerHTML = stat['passes']
+          
+          var off = document.getElementById('off');
+          off.innerHTML = '';
+          
+          var avOff = document.getElementById('avOff');
+          avOff.innerHTML = '';
+          
+          var shotsOn = document.getElementById('shotsOn');
+          shotsOn.innerHTML = stat['shotsOn'];
+          
+          var shotsTot = document.getElementById('shotsTot');
+          shotsTot.innerHTML = stat['shotsTotal'];
+
+          var foulsC = document.getElementById('foulsC');
+          foulsC.innerHTML = stat['foulsC'];
+          
+          var foulsD = document.getElementById('foulsD');
+          foulsD.innerHTML = stat['foulsD'];
+          
+          var duels = document.getElementById('duels');
+          duels.innerHTML = stat['duels'];
+          
+          var duelsWon = document.getElementById('duelsWon');
+          duelsWon.innerHTML = stat['duelsWon'];
+          
+          var shotsAc = document.getElementById('shotsAc');
+          shotsAc.innerHTML = ((stat['shotsOn'] / stat['shotsTotal']).toFixed(3) * 100).toFixed(1) + '%';   
+          
+          var maxGoals = Math.max.apply(null, topScorer);
+          var maxAssists= Math.max.apply(null, topAssists);
+            
+          const indexGoals = topScorer.indexOf(maxGoals);
+          const indexAssists = topAssists.indexOf(maxAssists);
+
+          //console.log('GOL ', indexGoals);
+          document.getElementById('faceLogo1').src = photos[indexGoals];
+          document.getElementById('flag1').src = countryFinder(nat[indexGoals], countries, countriesLinks);
+          document.getElementById('name1').innerHTML = names[indexGoals];
+          document.getElementById('number1').innerHTML = maxGoals;
+          console.log('ASS ', indexAssists);
+          document.getElementById('faceLogo2').src = photos[indexAssists];
+          document.getElementById('flag2').src = countryFinder(nat[indexAssists], countries, countriesLinks);
+          document.getElementById('name2').innerHTML = names[indexAssists];
+          document.getElementById('number2').innerHTML = maxAssists;
+          
+          //statCharts('chDonut2', ['Shooting Success'], (stat['shotsOn'] / stat['shotsTotal']).toFixed(3) * 100, 'blue', 100 - (['Shooting Success'], (stat['shotsOn'] / stat['shotsTotal']).toFixed(3) * 100), '#f9f9f9');
+          //statCharts('chDonut3', ['Duels Success'], (stat['duelsWon'] / stat['duels']).toFixed(3) * 100, 'blue', 100 - ((stat['duelsWon'] / stat['duels']).toFixed(3) * 100), '#f9f9f9');
+
+          statCharts2('blue', ((stat['shotsOn'] / stat['shotsTotal']).toFixed(3) * 100).toFixed(1), ((stat['duelsWon'] / stat['duels']).toFixed(3) * 100).toFixed(1), 'chDonut2', 'chDonut3', 'Shooting Accuracy %', 'Duels Success %')
+        }
+          
+      })
+      .catch(error => {
+        console.log(error)
+      }); 
+    };
+
+
+    var countries = ['Scotland', 'Wales', 'England', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 
+'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of Congo', 'Republic of Congo', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Fiji', 'Finland', 'France', 
+'Gabon', 'The Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', "Côte d'Ivoire", 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'North Korea', 'Korea Republic', 'South Korea', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Federated States of Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and Grenadines', 'Samoa', 'San Marino', 
+'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 
+'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe', 'Abkhazia', 'Artsakh', 'Cook Islands', 'Kosovo', 'Niue', 'Turkish Republic of Northern Cyprus', 'Sahrawi Arab Democratic Republic', 'Somaliland', 'South Ossetia', 'Republic of China', 'Transnistria']
+    var countriesLinks = ['https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Scotland.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Wales.svg', 'https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Belgium_%28civil%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg', 'https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg', 'https://upload.wikimedia.org/wikipedia/en/c/cf/Flag_of_Canada.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Cape_Verde.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Central_African_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Chad.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Republic_of_the_Congo.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Costa_Rica.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Dominica.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Equatorial_Guinea.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Eritrea.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Fiji.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg', 'https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Gabon.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg', 'https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg', 
+'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Grenada.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Honduras.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg', 'https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg', 'https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg', 'https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg', 
+'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_North_Korea.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Kyrgyzstan.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Latvia.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Liberia.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Liechtenstein.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Luxembourg.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag_of_Macedonia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Madagascar.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Maldives.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Marshall_Islands.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Mauritius.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_the_Federated_States_of_Micronesia.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Moldova.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Montenegro.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Namibia.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Nauru.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg', 'https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg', 'https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Saint_Lucia.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Samoa.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_San_Marino.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Sao_Tome_and_Principe.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Sierra_Leone.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg', 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Slovenia.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Solomon_Islands.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_South_Sudan.svg', 'https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Swaziland.svg', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Switzerland_%28Pantone%29.svg', 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Syria.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tanzania.svg', 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Togo.svg', 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Tonga.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Trinidad_and_Tobago.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Turkmenistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tuvalu.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Flag_of_Uganda.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg', 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg', 'https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_the_Vatican_City.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Zambia.svg', 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Zimbabwe.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Abkhazia.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Flag_of_Artsakh.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_the_Cook_Islands.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kosovo.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Niue.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg', 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_the_Sahrawi_Arab_Democratic_Republic.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Somaliland.svg', 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_South_Ossetia.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg', 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Transnistria_%28state%29.svg']
+
+    function countryFinder(country, countries, countriesLinks){
+      if(countries.includes(country)){
+        var index = countries.indexOf(country)
+        return countriesLinks[index];
+      }
+      else{
+        return country;
+      }
+    }
+
+
+    const stat = {passes: 0, shotsTotal: 0, shotsOn: 0, foulsC: 0, foulsD: 0, duels: 0, duelsWon: 0};
+    var topAssists = [];
+    var topScorer = [];
+    var names = [];
+    var photos = [];
+    var nat = [];
+
+    additionalTeamStats(document.getElementById('id_team').content, 2021, 1, stat, topScorer, topAssists, names, photos, nat)
+    teamStats(document.getElementById('id_team').content, document.getElementById('id_league').content, 2021)
+    transfers(document.getElementById('id_team').content)
+
+
+
+
+
+    function largest(index, largArr, arr) {
+      largArr[0] = 0;
+      largArr[1] = 0;
+      largArr[2] = 0;
+
+      for (i = 0; i < arr.length; i++) {
+          if (arr[i] > largArr[0]) {
+              largArr[0] = arr[i];
+              index[0] = i;
+
+          }
+      }
+
+      for (i = 0; i < arr.length; i++) {
+          if (arr[i] > largArr[1]
+              && arr[i] < largArr[0]) {
+              largArr[1] = arr[i];
+              index[1] = i;
+
+          }
+      }
+
+      for (i = 0; i < arr.length; i++) {
+          if (arr[i] > largArr[2]
+              && arr[i] < largArr[1]) {
+              largArr[2] = arr[i];
+              index[2] = i;
+          }
+      }
+
+      var final = [];
+      final.push(largArr);
+      final.push(index);
+
+      return final;
+    }
+
+
+
+    function getPlayersHeads(ides, season) {
+      let urls = [];
+
+      ides.forEach(id => {
+        urls.push(`https://api-football-v1.p.rapidapi.com/v3/players?id=${id}&season=${season}`);
+      });
+      
+      
+
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+
+
+      Promise.all(
+        urls.map(url =>
+          fetch(url, options)
+            .then(response => response.json())
+            .catch(err => console.error(err))
+        ))
+      .then(data => {
+        var count = 0;
+        for(var row of data){
+          var temp = row.response[0].player['photo'];
+          var parent = document.getElementById(count);
+          parent.children[0].innerHTML = '<img style="height: 50px; width: auto;" src="' +  temp +   '" alt="Face">';
+          count++;
+        }
+      })
+    }
+
+
+
+
+
+    function teamInfo(teamId) {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+        }
+      };
+      return fetch(`https://api-football-v1.p.rapidapi.com/v3/teams?id=${teamId}`, options)
+      .then(response => {
+          return response.json();
+      })
+      .then(data => {
+        console.log(data.response[0])
+        var path = data.response[0];
+        document.getElementById('name99').innerHTML = path.team.name;
+        document.getElementById('onomaTeam').innerHTML = path.team.name;
+        document.getElementById('acr99').innerHTML = path.team.code;
+        document.getElementById('count99').innerHTML = path.team.country;
+        document.getElementById('found99').innerHTML = path.team.founded;
+        document.getElementById('venue99').innerHTML = path.venue.name;
+        document.getElementById('adr99').innerHTML = path.venue.address;
+        document.getElementById('city99').innerHTML = path.venue.city;
+        document.getElementById('cap99').innerHTML = path.venue.capacity;
+
+        document.getElementById('logoTeam').src = path.team.logo;
+        // document.getElementById('vanueLogo').src = path.venue.image;
+        console.log("url(" + path.venue.image + ")")
+        document.getElementById('bg1').style.backgroundImage = "url('" + path.venue.image + "')";
+        
+      })
+      .catch(error => {
+          console.log(error)
+      }); 
+    };
+
+
+    teamInfo(33) 
+
+
+
+
+  
+  </script>
+    {% endblock %}
+</html>

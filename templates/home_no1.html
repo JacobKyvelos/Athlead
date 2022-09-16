@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Athlead</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="static/HPassets/img/favicon.svg"/> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/static/HPassets/css/bootstrap-5.0.0-alpha-2.min.css" />
+    <link rel="stylesheet" href="/static/HPassets/css/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/static/HPassets/css/animate.css" />
+    <link rel="stylesheet" href="/static/HPassets/css/main.css" />
+  </head>
+  <body>
+		{% block content %}
+    <!-- ========================= preloader start ========================= -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="ytp-spinner">
+          <div class="ytp-spinner-container">
+            <div class="ytp-spinner-rotator">
+              <div class="ytp-spinner-left">
+                <div class="ytp-spinner-circle"></div>
+              </div>
+              <div class="ytp-spinner-right">
+                <div class="ytp-spinner-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- ========================= hero-section start ========================= -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-xl-7">
+            <div class="hero-content">
+              <h1 class="wow fadeInUp" data-wow-delay=".2s">Everything you need to know about the sport you love</h1>
+              <p class="wow fadeInUp" data-wow-delay=".4s">
+                Take a full image of the sports world with just one click. Explore all the details and history of your favorite team and much more...
+              </p>
+               <!-- <a data-toggle="modal"
+								data-target="#exampleModal" href="{{ url_for('categories') }}" rel="nofollow" class="main-btn btn-hover wow fadeInUp" data-wow-delay=".6s">Get Started
+							</a> -->
+							<a href="{{ url_for('categories') }}" rel="nofollow" class="main-btn btn-hover wow fadeInUp" data-wow-delay=".6s">Get Started</a>
+            </div>
+					</div>
+					<div class="col-lg-12">
+						<div style=" margin-left: auto; margin-right: auto;" class="hero-img wow fadeInUp" data-wow-delay=".5s">
+							<img style="height: 1100px; width:auto;" src="/static/HPassets/img/hero/aloha31.png" alt="">
+						</div>
+					</div>
+        </div>
+      </div>
+    </section>
+		<!-- ========================= hero-section end ========================= -->
+
+
+		<!-- ========================= service-section start ========================= -->
+		<section id="features" class="service-section pt-150">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-xl-6 col-lg-9">
+						<div class="service-content">
+							<div class="section-title">
+								<h1 class="mb-30 wow fadeInUp" data-wow-delay=".2s">Our Features and Services</h1>
+								<p class="mb-40 wow fadeInUp" data-wow-delay=".4s">Athlead is a sports analytics application created to better organize and present the data of the sports world. Focusing on football and basketball, it provides all the necessary information about leagues, team and athletes in addition to statistics concerning their evolution. Moreover, it makes an introduction to biometric applications in the field of sports, presenting the way wearable devices can be used to improve the athletes performance.</p>
+								<!-- <a href="javascript:void(0)" class="main-btn btn-hover border-btn wow fadeInUp" data-wow-delay=".6s" data-toggle="modal"
+								data-target="#exampleModal">Sign In</a> -->
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-12 col-xl-6">
+						<div class="row">
+							<div class="col-xl-6 col-md-6">
+								<div class="single-service">
+									<div class="icon">
+										<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											viewBox="0 0 100.75 100.75" style="enable-background:new 0 0 100.75 100.75;" xml:space="preserve">
+										<path d="M50,11.157c-21.89,0-39.699,17.809-39.699,39.699S28.11,90.555,50,90.555s39.699-17.809,39.699-39.699
+											S71.89,11.157,50,11.157z M78.52,73.917c-0.027-0.001-0.053-0.008-0.08-0.008H65.151l-6.352-10.778l6.221-10.775h12.658
+											l6.637,11.495C82.919,67.523,80.952,70.914,78.52,73.917z M65.124,76.909h10.694c-4.411,4.371-9.923,7.628-16.077,9.324
+											L65.124,76.909z M34.847,76.909l5.378,9.314c-6.14-1.699-11.641-4.951-16.043-9.314H34.847z M34.791,73.909h-13.26
+											c-0.018,0-0.035,0.005-0.054,0.005c-2.431-3.002-4.397-6.392-5.792-10.063l6.636-11.495h12.601l6.221,10.775L34.791,73.909z
+											M13.301,50.856c0-3.151,0.4-6.211,1.151-9.132l5.272,9.132l-5.272,9.132C13.701,57.067,13.301,54.007,13.301,50.856z
+											M21.478,27.798c0.018,0.001,0.035,0.005,0.053,0.005h13.26l6.353,10.779l-6.221,10.774H22.322l-6.636-11.494
+											C17.08,34.19,19.046,30.799,21.478,27.798z M34.847,24.803H24.182c4.403-4.363,9.903-7.615,16.043-9.314L34.847,24.803z
+											M43.746,61.639L37.52,50.856l6.226-10.782h12.45l6.226,10.782l-6.226,10.783H43.746z M65.124,24.803l-5.383-9.324
+											c6.154,1.697,11.666,4.953,16.077,9.324H65.124z M64.734,27.803H78.44c0.027,0,0.053-0.007,0.08-0.008
+											c2.432,3.002,4.399,6.394,5.795,10.066l-6.637,11.494H65.02l-6.234-10.798L64.734,27.803z M80.276,50.856l5.273-9.132
+											c0.751,2.921,1.151,5.98,1.151,9.132c0,3.152-0.4,6.211-1.151,9.132L80.276,50.856z M55.799,14.62
+											c0.022,0.051,0.04,0.102,0.068,0.151l6.459,11.187l-6.148,11.116H43.737l-6.32-10.723l6.686-11.58
+											c0.027-0.047,0.044-0.097,0.066-0.146c1.9-0.305,3.846-0.468,5.83-0.468C51.973,14.157,53.909,14.318,55.799,14.62z M44.169,87.087
+											c-0.022-0.049-0.038-0.098-0.066-0.146L37.417,75.36l6.32-10.722h12.468l6.334,10.747l-6.672,11.556
+											c-0.028,0.049-0.046,0.101-0.068,0.151c-1.89,0.301-3.826,0.463-5.8,0.463C48.015,87.555,46.069,87.391,44.169,87.087z"/>
+										</svg>
+									</div>
+									<div class="content">
+										<h3>Football</h3>
+										<p>All you can find about the best leagues, associations and players in the football world is here.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-6 col-md-6">
+								<div class="single-service">
+									<div class="icon">		
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											height="64"  viewBox="0 0 100.75 100.75" style="enable-background:new 0 0 100.75 100.75;" xml:space="preserve">
+										<path d="M78.509,77.586c6.919-7.148,11.19-16.875,11.19-27.586c0-10.67-4.239-20.362-11.112-27.503
+											c-0.046-0.061-0.072-0.133-0.129-0.188c-0.039-0.037-0.089-0.051-0.13-0.084c-7.209-7.352-17.243-11.924-28.329-11.924
+											C28.109,10.301,10.3,28.11,10.3,50c0,10.554,4.148,20.151,10.888,27.269c0.073,0.224,0.182,0.437,0.362,0.613
+											c0.162,0.157,0.352,0.26,0.551,0.33c7.175,7.096,17.032,11.487,27.897,11.487c11.109,0,21.161-4.593,28.374-11.972
+											c0.021-0.018,0.048-0.025,0.068-0.044C78.472,77.655,78.482,77.616,78.509,77.586z M13.339,51.5h18.519
+											c-0.298,8.539-3.508,16.602-9.161,22.99C17.172,68.338,13.696,60.315,13.339,51.5z M86.661,48.5H68.147
+											c0.343-8.509,3.584-16.532,9.246-22.886C82.865,31.753,86.306,39.734,86.661,48.5z M65.147,48.5H51.438V13.338
+											c9.235,0.358,17.6,4.144,23.865,10.119C69.058,30.387,65.494,39.176,65.147,48.5z M48.437,48.5H34.85
+											c-0.392-9.228-3.969-18.011-10.179-24.892c-0.021-0.023-0.046-0.04-0.068-0.062c6.248-6,14.603-9.817,23.835-10.206V48.5H48.437z
+											M34.858,51.5h13.58v35.16c-9.137-0.385-17.415-4.128-23.642-10.022C31.025,69.675,34.556,60.85,34.858,51.5z M51.437,51.5h13.709
+											c0.345,9.325,3.909,18.116,10.153,25.047c-6.265,5.973-14.629,9.758-23.862,10.116V51.5z M68.147,51.5h18.514
+											c-0.355,8.768-3.798,16.75-9.271,22.891C71.727,68.036,68.487,60.01,68.147,51.5z M22.523,25.711
+											c5.661,6.315,8.939,14.346,9.327,22.789H13.339C13.692,39.78,17.101,31.837,22.523,25.711z"/>
+										</svg>									
+									</div>
+									<div class="content">
+										<h3>Basketball</h3>
+										<p>Explore the magical world of the NBA via the numerous benefits of Athlead.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-6 col-md-6">
+								<div class="single-service">
+									<div class="icon">
+										<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+										<g id="Guide">
+										<path d="M57.707,25.293c-0.391-0.391-1.023-0.391-1.414,0L46,35.586L40.414,30l0.464-0.464c0.945-0.944,1.465-2.2,1.465-3.536
+											c0-1.097-0.351-2.139-0.999-3H46c0.552,0,1-0.448,1-1V11c0-2.757-2.243-5-5-5H22c-0.265,0-0.52,0.105-0.707,0.293l-3.324,3.324
+											C17.983,9.412,18,9.208,18,9c0-4.962-4.038-9-9-9S0,4.038,0,9s4.038,9,9,9c0.342,0,0.679-0.023,1.012-0.061
+											C10.011,17.96,10,17.979,10,18v8H1c-0.552,0-1,0.448-1,1v7c0,0.552,0.448,1,1,1h13c2.757,0,5-2.243,5-5v-2.586L23.586,32
+											L12.293,43.293C12.105,43.48,12,43.735,12,44v19c0,0.552,0.448,1,1,1h7h2h3v-2h-2V47.414l10-10l9.464,9.464
+											c0.975,0.975,2.255,1.462,3.536,1.462s2.561-0.487,3.536-1.462l14.171-14.171c0.391-0.391,0.391-1.023,0-1.414L57.707,25.293z M2,9
+											c0-3.86,3.14-7,7-7s7,3.14,7,7c0,1.358-0.395,2.623-1.067,3.697c-0.563,0.901-1.335,1.673-2.236,2.236C11.623,15.605,10.358,16,9,16
+											C5.14,16,2,12.86,2,9z M17,30c0,1.654-1.346,3-3,3H2v-5h9c0.552,0,1-0.448,1-1v-6.586l5,5V30z M21.293,46.293
+											C21.105,46.48,21,46.735,21,47v15h-1h-6V44.414l11.707-11.707c0.391-0.391,0.391-1.023,0-1.414L12.414,18l1.415-1.415
+											c0.01-0.006,0.019-0.014,0.029-0.021c1.085-0.699,2.009-1.623,2.708-2.708c0.006-0.01,0.014-0.019,0.021-0.029L22.414,8H42
+											c1.654,0,3,1.346,3,3v10h-5v-7c0-0.552-0.448-1-1-1h-8c-0.404,0-0.769,0.244-0.924,0.617c-0.155,0.374-0.069,0.804,0.217,1.09
+											l9.171,9.171c0.567,0.567,0.879,1.32,0.879,2.122s-0.312,1.555-0.879,2.122L21.293,46.293z M38,15v4.586L33.414,15H38z
+											M48.122,45.464c-1.17,1.17-3.073,1.17-4.243,0L34.414,36L39,31.414l6.293,6.293c0.391,0.391,1.023,0.391,1.414,0L57,27.414
+											L61.586,32L48.122,45.464z"/>
+										<path d="M56.707,45.394c-0.391-0.391-1.023-0.391-1.414,0l-4.95,4.95C48.832,51.854,48,53.863,48,56s0.832,4.146,2.343,5.657
+											C51.854,63.168,53.863,64,56,64s4.146-0.832,5.657-2.343C63.168,60.146,64,58.137,64,56s-0.832-4.146-2.343-5.657L56.707,45.394z
+											M60.243,60.243C59.109,61.376,57.603,62,56,62s-3.109-0.624-4.243-1.757S50,57.603,50,56s0.624-3.109,1.757-4.243L56,47.515
+											l4.243,4.243C61.376,52.891,62,54.397,62,56S61.376,59.109,60.243,60.243z"/>
+										<path d="M56.707,51.05c-0.188-0.188-0.442-0.293-0.707-0.293s-0.52,0.105-0.707,0.293l-2.122,2.122C52.416,53.927,52,54.932,52,56
+											s0.416,2.073,1.172,2.829C53.927,59.584,54.932,60,56,60s2.073-0.416,2.829-1.172C59.584,58.073,60,57.068,60,56
+											c0-1.069-0.417-2.073-1.172-2.828L56.707,51.05z M57.415,57.414c-0.756,0.756-2.074,0.755-2.829,0C54.208,57.037,54,56.534,54,56
+											s0.208-1.037,0.585-1.414L56,53.171l1.414,1.415C57.792,54.964,58,55.466,58,56S57.792,57.037,57.415,57.414z"/>
+										<path d="M44.536,55.464l-2.829-2.828c-0.391-0.391-1.023-0.391-1.414,0l-2.829,2.828c-1.949,1.95-1.949,5.122,0,7.071
+											c0.975,0.975,2.255,1.462,3.536,1.462s2.561-0.487,3.536-1.462C46.485,60.586,46.485,57.414,44.536,55.464z M43.122,61.122
+											c-1.17,1.169-3.073,1.169-4.243,0c-1.169-1.17-1.169-3.073,0-4.243L41,54.757l2.122,2.121
+											C44.291,58.048,44.291,59.952,43.122,61.122z"/>
+										<rect x="27" y="62" width="2" height="2"/>
+										<rect x="31" y="62" width="2" height="2"/>
+										<rect x="49" y="6" width="2" height="2"/>
+										<rect x="53" y="6" width="2" height="2"/>
+										<rect x="57" y="6" width="2" height="2"/>
+										</svg>							
+									</div>
+									<div class="content">
+										<h3>Biometric Applications</h3>
+										<p>Inspect the performace of the athletes via the evolutionary wearable equipment.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-6 col-md-6">
+								<div class="single-service">
+									<div class="icon">
+										<!-- <svg xmlns="http://www.w3.org/2000/svg" height="64" viewBox="0 0 118 94" role="img"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.5,0.846 l-0.309,0.154,0.044,-0.357 L0,0.382 l0.336,-0.067 L0.5,0 l0.164,0.315,0.336,0.067,-0.235,0.261,0.044,0.357" fill="#286ade"></path></svg>		 -->	
+										<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+										  width="60" height="60" viewBox="0 0 128.000000 128.000000"
+											preserveAspectRatio="xMidYMid meet">
+
+											<g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+											fill="#000000" stroke="none">
+											<path d="M95 1196 c-42 -19 -71 -54 -85 -101 -8 -28 -10 -147 -8 -397 3 -342
+											4 -358 24 -384 50 -67 55 -69 285 -72 l209 -3 0 -59 0 -59 -37 -3 c-30 -2 -38
+											-7 -38 -23 0 -19 8 -20 203 -23 l202 -2 0 25 c0 23 -4 25 -45 25 l-45 0 0 59
+											0 60 209 3 c239 3 246 6 289 89 23 44 23 46 20 411 -3 352 -4 368 -24 394 -11
+											15 -33 37 -48 48 -27 21 -40 21 -554 23 -424 2 -533 0 -557 -11z m1047 -46
+											c20 -6 46 -22 58 -37 19 -25 20 -39 20 -314 l0 -289 -580 0 -580 0 0 289 c0
+											276 1 289 21 315 11 14 35 30 52 35 45 13 962 14 1009 1z m78 -740 c0 -41 -5
+											-56 -29 -82 l-29 -33 -522 0 -522 0 -29 33 c-24 26 -29 41 -29 82 l0 50 580 0
+											580 0 0 -50z m-520 -230 l0 -60 -60 0 -60 0 0 60 0 60 60 0 60 0 0 -60z"/>
+											<path d="M955 950 c-58 -77 -109 -140 -113 -140 -4 1 -29 30 -56 65 -26 36
+											-54 65 -60 65 -7 0 -47 -40 -90 -90 -43 -49 -81 -90 -86 -90 -5 0 -35 45 -66
+											100 -36 61 -65 100 -75 100 -19 0 -223 -326 -215 -346 15 -39 43 -10 126 126
+											97 159 82 156 157 23 29 -52 53 -83 63 -83 9 0 52 40 96 90 43 49 82 90 85 90
+											3 0 29 -29 57 -65 29 -36 59 -65 66 -65 8 0 65 69 127 153 62 83 117 158 122
+											165 10 12 -7 42 -24 42 -5 0 -56 -63 -114 -140z"/>
+											</g>
+										</svg>														
+									</div> 
+									<div class="content">
+										<h3>Statistics Variety</h3>
+										<p>Compare, observe and analyse the vast variety of data provided by this unique application.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<!-- ========================= service-section end ========================= -->
+
+    <!-- ========================= footer start ========================= -->
+		<footer class="footer mt-150 pt-90">
+			<div class="container">
+				
+				<div class="widget-wrapper">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12" style="text-align: center;">
+							<div class="footer-widget">
+								<div class="logo">
+									<a href="index.html"> <img src="" alt="logo" width="200em"> </a>
+								</div>
+								<ul class="socials justify-content-center">
+									<li>
+										<a href="javascript:void(0)"> <i class="lni lni-facebook-filled"></i> </a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"> <i class="lni lni-twitter-filled"></i> </a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"> <i class="lni lni-instagram-filled"></i> </a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"> <i class="lni lni-linkedin-original"></i> </a>
+									</li>
+								</ul>
+							</div>
+						</div>						
+						
+						<p class="text-center pb-30" style="color: #fff">Copyright © 2022. All rights reserved</p>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+    <!-- ========================= footer end ========================= -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+      <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="/static/HPassets/js/bootstrap.5.0.0.alpha-2-min.js"></script>
+    <script src="/static/HPassets/js/count-up.min.js"></script>
+    <script src="/static/HPassets/js/wow.min.js"></script>
+    <script src="/static/HPassets/js/main.js"></script>
+  </body>
+	{% endblock %}
+</html>
