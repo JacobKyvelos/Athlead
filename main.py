@@ -308,13 +308,14 @@ def league_teams(league_id):
 
 @app.route("/football/league:<league_id>/team:<team_id>/player:<player_id>")
 def football_player_home(league_id, team_id, player_id):
-    mycursor = mydb.cursor(buffered=True)
-    sql = "SELECT logo FROM football_team WHERE team_id = %s"
-    adr = (team_id, )
-    mycursor.execute(sql, adr)
-    myresult = mycursor.fetchone()
-    logo = myresult[0]
-    return render_template("football_player_home.html", league_id = league_id, team_id = team_id, player_id = player_id, logo = logo)
+    # mycursor = mydb.cursor(buffered=True)
+    # sql = "SELECT logo FROM football_team WHERE team_id = %s"
+    # adr = (team_id, )
+    # mycursor.execute(sql, adr)
+    # myresult = mycursor.fetchone()
+    # print(myresult)
+    # logo = myresult[0]
+    return render_template("football_player_home.html", league_id = league_id, team_id = team_id, player_id = player_id)
 
 
 
@@ -403,7 +404,8 @@ def basketball_teams():
 @app.route("/basketball/home")
 def basket_league_stats():
     stats = all_season_league_stats()
-    return render_template("basket_league_stats.html", headers = stats[0], stats = stats)
+    tools = ['Ranking', '', 'League', '', 'Height', 'Weight', 'Games played', 'Minutes Played per Game', 'Average Field Goals Made', 'Average Field Goals Attempted', 'Average 3 Pointers Made', 'Average 3 Pointers Attempted', 'Average Free Throws Made', 'Average Free Throws Attempted', 'Average Offensive Rebounds', 'Average Defensive Rebounds', 'Average Total Rebounds', 'Average Assists per Game', 'Average Steals per Game', 'Average Blocks per Game', 'Average Turnovers per Game', 'Average Fouls per Game', 'Average Points per Game', 'Average Field Goals Percentage', 'Average 3 Pointers Percentage', 'Average Free Throws Percentage', '', 'Average Effective Field Goals Percentage', 'Average Turnovers Percentage', 'Average Offensive Rebounds Percentage', 'Free Throws Made per Field Goals Attempted', 'Offensive Rating']
+    return render_template("basket_league_stats.html", headers = stats[0], stats = stats, tools = tools)
 
 @app.route("/basketball/news")
 def basket_league_news():
@@ -454,11 +456,11 @@ def team_stats(team_id):
 
 @app.route("/basketball/<team_id>/fixtures")
 def team_fixtures(team_id):
-    print(team_id)
-    fixt = pandas_fixture()
-    step = int(len(fixt)/3)
-    print(fixt)
-    return render_template("basket_team_fixtures.html", teamId = team_id, data = fixt, step = step)
+    # print(team_id)
+    # fixt = pandas_fixture()
+    # step = int(len(fixt)/3)
+    # print(fixt)
+    return render_template("basket_team_fixtures.html", teamId = team_id)
 
 
 @app.route("/basketball/<team_id>/squad")
@@ -469,7 +471,7 @@ def team_players(team_id):
     # dict = common_players(current_players, dict)
     mycursor = mydb.cursor(buffered=True)
     #sql = "SELECT player_id, full_name, headshot FROM player WHERE team_id = %s"
-    sql = "select player.player_id, player2.name, player.headshot from (`player` join `player2`) where player.full_name = player2.name and player2.team_id = %s;"
+    sql = "select player.player_id, player2.name, player.headshot, player2.jersey, player2.position, player2.country from (`player` join `player2`) where player.full_name = player2.name and player2.team_id = %s;"
     adr = (team_id, )
     mycursor.execute(sql, adr)
     myresult = mycursor.fetchall()
@@ -477,7 +479,7 @@ def team_players(team_id):
         print(x)
         y = list(x)
         print(y[2])
-        if y[2] == 'None':
+        if y[2] == None:
             y[2] = 'https://www.kitshouse.org/wp-content/uploads/2019/09/no-image-1.jpg'
         else:
             y[2] = 'https://cdn.nba.com/headshots/nba/latest/1040x760/' + str(y[2]) + '.png'

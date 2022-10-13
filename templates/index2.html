@@ -25,28 +25,19 @@
   <link rel="stylesheet" href="/static/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="/static/images/favicon.png" />
+
+  <style>
+    .carousel-control-prev-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 8 8"%3E%3Cpath d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"/%3E%3C/svg%3E') !important;
+    }
+
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    }
+  </style>
 </head>
 <body>
   <div class="container-scroller">
-    <div class="row p-0 m-0 proBanner" id="proBanner">
-      <div class="col-md-12 p-0 m-0">
-        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-          <div class="ps-lg-1">
-            <div class="d-flex align-items-center justify-content-between">
-              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
-            </div>
-          </div>
-          <div class="d-flex align-items-center justify-content-between">
-            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
-            <button id="bannerClose" class="btn border-0 p-0">
-              <i class="mdi mdi-close text-white me-0"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
         <div class="me-3">
@@ -56,166 +47,22 @@
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="index.html">
-            <img src="static/images/logo.svg" alt="logo" />
+            <img src="/static/images/LOGO.png" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
-            <img src="static/images/logo-mini.svg" alt="logo" />
+            <img src="/static/images/athlead_logo_mini.png" alt="logo" />
           </a>
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
-            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">User</span></h1>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-              <a class="dropdown-item py-3" >
-                <p class="mb-0 font-weight-medium float-left">Select category</p>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="nav-item d-none d-lg-block">
-            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-              <span class="input-group-addon input-group-prepend border-right">
-                <span class="icon-calendar input-group-text calendar-icon"></span>
-              </span>
-              <input type="text" class="form-control">
-            </div>
-          </li>
-          <li class="nav-item">
-            <form class="search-form" action="#">
-              <i class="icon-search"></i>
-              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-            </form>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-              <i class="icon-mail icon-lg"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
-              <a class="dropdown-item py-3 border-bottom">
-                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
-                <span class="badge badge-pill badge-primary float-right">View all</span>
-              </a>
-              <a class="dropdown-item preview-item py-3">
-                <div class="preview-thumbnail">
-                  <i class="mdi mdi-alert m-auto text-primary"></i>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
-                  <p class="fw-light small-text mb-0"> Just now </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item py-3">
-                <div class="preview-thumbnail">
-                  <i class="mdi mdi-settings m-auto text-primary"></i>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
-                  <p class="fw-light small-text mb-0"> Private message </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item py-3">
-                <div class="preview-thumbnail">
-                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
-                  <p class="fw-light small-text mb-0"> 2 days ago </p>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="nav-item dropdown"> 
-            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="icon-bell"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
-              <a class="dropdown-item py-3">
-                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-                <span class="badge badge-pill badge-primary float-right">View all</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="static/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="static/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="static/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
-            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="static/images/faces/face8.jpg" alt="Profile image"> </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="static/images/faces/face8.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
-              </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
-            </div>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+        <!-- <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
-        </button>
+        </button> -->
       </div>
     </nav>
     <!-- partial -->
@@ -394,95 +241,66 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+
+          <li class="nav-item nav-category">PAGES</li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item nav-category">UI Elements</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">UI Elements</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#starting_page" aria-expanded="false" aria-controls="starting_page">
+              <i class="menu-icon mdi mdi-home"></i>
+              <span class="menu-title">Home Page</span>
               <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="starting_page">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url_for('home') }}">Home Page</a></li>
               </ul>
             </div>
           </li>
-          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item nav-category">CATEGORIES</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+            <a class="nav-link" data-bs-toggle="collapse" href="#categories_t" aria-expanded="false" aria-controls="categories_t">
               <i class="menu-icon mdi mdi-card-text-outline"></i>
-              <span class="menu-title">Form elements</span>
+              <span class="menu-title">Categories</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="form-elements">
+            <div class="collapse" id="categories_t">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('categories') }}">All Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('football_leagues') }}">Football</a></li>
               </ul>
             </div>
           </li>
+          <li class="nav-item nav-category">LEAGUE PAGES</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Charts</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#league_t" aria-expanded="false" aria-controls="league_t">
+              <i class="menu-icon mdi mdi-trophy"></i>
+              <span class="menu-title">League Pages</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="charts">
+            <div class="collapse" id="league_t">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('basket_league_stats') }}">Stats</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('basketball_teams') }}">Teams</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('basket_league_standings') }}">Standings</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('basket_league_news') }}">News</a></li>
               </ul>
             </div>
           </li>
+          <li class="nav-item nav-category">TEAM PAGES</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="menu-icon mdi mdi-table"></i>
-              <span class="menu-title">Tables</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#team_t" aria-expanded="false" aria-controls="team_t">
+              <i class="menu-icon mdi mdi-shield-outline"></i>
+              <span class="menu-title">Team Pages</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="tables">
+            <div class="collapse" id="team_t">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('team_stats', team_id = team_id) }}">Stats</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('team_players', team_id = team_id) }}">Squad</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('team_fixtures', team_id = team_id) }}">Fixtures</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('team_results', team_id = team_id) }}">Results</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('basket_player_comp', team_id = team_id) }}">Players Comparison</a></li>
               </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-              <i class="menu-icon mdi mdi-layers-outline"></i>
-              <span class="menu-title">Icons</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">pages</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-account-circle-outline"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">help</li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
-              <i class="menu-icon mdi mdi-file-document"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
           </li>
         </ul>
       </nav>
@@ -503,9 +321,9 @@
                   </ul>
                   <div>
                     <div class="btn-wrapper">
-                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <!-- <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
                       <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a> -->
                     </div>
                   </div>
                 </div>
@@ -514,7 +332,80 @@
                 </div> -->
                 <div class="tab-content tab-content-basic">
                   <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
-                    <div class="row flex-grow">
+
+                    <div class="row">
+                      <div class="col-xl-1 col-lg-1 grid-margin stretch-card"></div>
+                      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <img id="logoFace" src={{ headshot }} class="img-fluid" style="display: block; margin-left: auto; margin-right: auto; height: 200px;" alt="Responsive image">
+                            <br>
+                            <div style="text-align: center;">
+                              <h5 id="onomaPl" class="card-title fw-bold"><strong>{{ data }}</strong></h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-borderless " style="vertical-align: middle;">
+                                <tbody>
+                                  <tr>
+                                    <th>Jersey Number</th>
+                                    <td id="jer99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>position</th>
+                                    <td id="pos99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Weight</th>
+                                    <td id="w99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Height</th>
+                                    <td id="h99" style="text-align: center;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 grid-margin stretch-card">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-borderless " style="vertical-align: middle;">
+                                <tbody>
+                                  <tr>
+                                    <th>Born in </th>
+                                    <td id="date99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Birth place</th>
+                                    <td id="pl99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>College - Former Team</th>
+                                    <td id="col99" style="text-align: center;"></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Drafted in</th>
+                                    <td id="dr99" style="text-align: center;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-1 col-lg-1 grid-margin stretch-card"></div>
+                    </div>
+
+                    <!-- <div class="row flex-grow">
                       <div class="col-12 grid-margin stretch-card">
                         <div class="card card-rounded table-darkBGImg">
                           <div class="card-body">
@@ -532,9 +423,10 @@
                           </div>
                         </div>
                       </div>
-                    </div> 
+                    </div>  -->
                     <div class="row">
-                      <div class="col-lg-12 grid-margin stretch-card">
+                      <div class="col-xl-1 col-lg-1 grid-margin stretch-card"></div>
+                      <div class="col-lg-10 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
                             <!-- <div class="d-sm-flex justify-content-between align-items-start">
@@ -544,24 +436,24 @@
                               </div>
                             </div> -->
                             <div class="table-responsive pt-3">
-                              <table class="table table-borderless" id="trapezi" style="text-align: center;">
+                              <table class="table table-bordered" id="trapezi" style="text-align: center;">
                                 <thead>
                                   <tr>
-                                    <td>
+                                    <th>
                                       Points
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th>
                                       Assists
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th>
                                       Rebounds
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th>
                                       Steals
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th>
                                       Blocks
-                                    </td>
+                                    </th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -588,6 +480,7 @@
                           </div>
                         </div>
                       </div>
+                      <div class="col-xl-1 col-lg-1 grid-margin stretch-card"></div>
                     </div>
                     <div class="row">
                       <div class="col-lg-12 grid-margin stretch-card">
@@ -783,7 +676,7 @@
                                 <div class="card" style="width: 18rem;">
                                   <div class="card-body">
                                     <div>
-                                      <h5 class="card-title" style="text-align: center;">haha</h5>
+                                      <h5 class="card-title">Stats representaion</h5>
                                     </div>
                                     <div class="table-responsive">
                                       <table class="table table-borderless">
@@ -1293,6 +1186,43 @@
         }
       }
     });
+
+
+
+
+    function playerTransfers(playerId){
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '62c9fa5bfamshed0ab97c3766b02p1fcfb5jsnc9e3c94f89ed',
+          'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+        }
+      };
+
+      return fetch(`https://api-nba-v1.p.rapidapi.com/players?id=${playerId}`, options)
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        const path = data.response[0];
+
+        document.getElementById('jer99').innerHTML = path.leagues.standard['jersey'];
+        document.getElementById('pos99').innerHTML = path.leagues.standard['pos'];
+        document.getElementById('w99').innerHTML = path.weight['kilograms'];
+        document.getElementById('h99').innerHTML = path.height['meters']
+        document.getElementById('date99').innerHTML = path.birth.date;
+        document.getElementById('pl99').innerHTML = path.birth.country;
+        document.getElementById('col99').innerHTML = path.college;
+        document.getElementById('dr99').innerHTML = path.nba.start;
+      })
+      .catch(err => {
+        console.error(err)
+      });
+    }
+
+    playerTransfers(document.getElementById('id_player').content);
+
+
 </script>
 
 </html>
